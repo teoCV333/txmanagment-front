@@ -1,0 +1,22 @@
+.find-cc {
+    margin-top: 10px;
+    padding: 44px 17px;
+    background: #f1eae4;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cc-logo {
+    width: 50%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.cc-logo img {
+    width: 55%;
+}
+
+.find-cc h2 {
+    margin-top: 33px;
+}

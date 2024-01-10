@@ -1,0 +1,22 @@
+.header {
+    display: flow-root;
+    background: #d71e28;
+}
+
+.header-line {
+    border: 1px solid #e97219;
+    display: flex;
+    background: #fcc60a;
+    height: 1px;
+}
+
+.logo {
+    left: 10px;
+}
+
+.header ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0px 10px;
+    justify-content: space-between;
+}

@@ -1,0 +1,9 @@
+.title img {
+    width: 230px;
+}
+
+li.title {
+    display: flex;
+    align-items: center;
+    margin-left: 4%;
+}

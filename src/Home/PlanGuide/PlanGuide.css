@@ -1,0 +1,43 @@
+.plan-guide {
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.plan-guide h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.plan-guide h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.plan-guide button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left: 5%;
+    font-size: 20px;
+    width: 90%;
+    padding: 10px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    background-color: transparent;
+}
+
+.plan-img {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.plan-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.plan-guide-content {
+    padding: 16px;
+}

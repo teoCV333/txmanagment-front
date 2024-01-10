@@ -1,0 +1,33 @@
+.cash-reward {
+    margin-top: 10px;
+    padding: 17px;
+    background: #f1eae4;
+    text-align: center;
+}
+
+.cards-logo img {
+    width: 100%;
+}
+
+.cash-reward h1 {
+    padding: 0px 24px;
+    font-size: 3rem;
+}
+
+.cash-reward h2 {
+    font-size: 2rem;
+}
+
+.cash-reward h1, h2 {
+    font-weight: 500;
+}
+
+@media only screen and (min-width: 601px) {
+    .cards-logo img {
+        width: 50%;
+    }    
+
+    .cash-reward {
+        margin-top: 3%;
+    }
+}

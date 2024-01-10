@@ -1,0 +1,18 @@
+.get-college {
+    margin-top: 10px;
+    padding: 24px 17px;
+    background: #f1eae4;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.college-logo {
+    width: 50%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.college-logo img {
+    width: 55%;
+}

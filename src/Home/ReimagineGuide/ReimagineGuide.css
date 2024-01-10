@@ -1,0 +1,43 @@
+.reimagine-guide {
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.reimagine-guide h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.reimagine-guide h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.reimagine-guide button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left: 5%;
+    font-size: 20px;
+    width: 90%;
+    padding: 10px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    background-color: transparent;  
+}
+
+.reimagine-img {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.reimagine-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.reimagine-guide-content {
+    padding: 16px;
+}

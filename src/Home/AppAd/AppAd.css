@@ -1,0 +1,20 @@
+.ad-content {
+    padding: 20px;
+    color: white;
+    text-align: center;
+    background:  linear-gradient(16.99deg,#463782 12.34%,#28204a 88.93%);
+}
+
+.ad-content p {
+    font-size: 24px;
+}
+
+.phone-section-options ul {
+    font-size: 18px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.phone-section-options ul li {
+    margin-top: 8px;
+}

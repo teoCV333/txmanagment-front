@@ -1,0 +1,43 @@
+.why-we-are {
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.why-we-are h1 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.why-we-are h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.why-we-are button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left: 5%;
+    font-size: 20px;
+    width: 90%;
+    padding: 10px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    background-color: transparent;  
+}
+
+.why-img {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.why-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.why-we-are-content {
+    padding: 16px;
+}

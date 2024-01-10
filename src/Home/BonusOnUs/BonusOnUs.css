@@ -1,0 +1,22 @@
+.bonus-on-us {
+    margin-top: 15px;
+    padding: 24px 17px;
+    background: #f1eae4;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dollar-logo {
+    width: 50%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.dollar-logo img {
+    width: 70%;
+}
+
+.bonus-content h1 {
+    margin-top: 0;
+}

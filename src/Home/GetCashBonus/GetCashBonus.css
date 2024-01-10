@@ -1,0 +1,25 @@
+.get-cash-bonus {
+    margin-top: 20px;
+    text-align: center;
+    padding: 24px 0px;
+    display: grid;
+    grid-auto-rows: max-content;
+    background-image: url("./getCashBonus.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 265px;
+    align-items: center;
+    background-position-x: right;
+}
+
+.get-cash-bonus h1 {
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 52px;
+}
+
+.get-cash-bonus h2 {
+    margin-top: 24px;
+    font-weight: 400;
+    font-size: 28px;
+}

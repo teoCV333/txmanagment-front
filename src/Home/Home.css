@@ -1,0 +1,64 @@
+.grid-container, .financial-grid-container, .serving-grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 16px;
+}
+
+.grid-container {
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px; 
+}
+
+.financial-grid-container {
+    grid-template-rows: repeat(3, 1fr);
+    gap: 40px; 
+}
+
+.serving-grid-container {
+    grid-template-rows: repeat(1, 1fr);
+    gap: 40px; 
+}
+
+hr.break-line {
+    margin: 10% 40%;
+    height: 3px;
+    width: 100px;
+    background: #ffcd41;;
+}
+
+.financial-guide-content {
+    text-align: justify;
+}
+
+.financial-guide-content .financial-guide-tittle {
+    font-size: 40px;
+    font-weight: 300;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+.serving-customers-content .serving-customers-tittle {
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+.serving-customers-content .serving-customers-text-content {
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0px 48px;
+    margin-top: 64px;
+    text-align: center;
+}
+
+@media only screen and (min-width: 601px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        padding: 16px;
+        gap: 10px; 
+    }
+    
+}

@@ -1,0 +1,22 @@
+.interest-rates {
+    margin-top: 8%;
+    padding: 44px 17px;
+    background: #f1eae4;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.rates-logo {
+    width: 50%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.rates-logo img {
+    width: 80%;
+}
+
+.interest-rates h2 {
+    margin-top: 33px;
+}
