@@ -10,7 +10,7 @@ function AppAd() {
                 app gives you fast and secure access to your finances
             </p>
             <div className="phone-section">
-                <img src={phone} />
+                <img src={phone} alt=""/>
             </div>
             <div className="phone-section-options" >
                 <ul>

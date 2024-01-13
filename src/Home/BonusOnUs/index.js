@@ -5,7 +5,7 @@ function BonusOnUs() {
     return (
         <div className="bonus-on-us">
             <div className='dollar-logo'>
-                <img src={dollar} />
+                <img src={dollar} alt=""/>
             </div>
             <div className="bonus-content">
                 <h1>$525 Bonus on us</h1>

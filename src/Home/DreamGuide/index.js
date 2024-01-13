@@ -4,8 +4,8 @@ import dream from './dream.png';
 function DreamGuide() {
     return (
         <div className="dream-guide">
-            <div className='dream-img'>
-                <img src={dream} />
+            <div className="dream-img">
+                <img src={dream} alt=""/>
             </div>
             <div className="dream-guide-content">
                 <h1>Dream big. Make it happen. Live it up.</h1>

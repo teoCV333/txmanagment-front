@@ -1,6 +1,7 @@
 .icons-container {
     display: flex;
     text-align: center;
+    padding: 10px 20px 0px 20px;
 }
 
 .icons-container ul {

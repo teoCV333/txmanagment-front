@@ -1,0 +1,58 @@
+.logo-1 img {
+    display: flex;
+    width: 92%;
+    margin-left: 8%;
+}
+
+.logo-2 {
+    padding: 10px;
+}
+
+.logo-2 img {
+    display: flex;
+    width: 100%;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 8px 0px 8px;
+    justify-content: center;
+}
+
+input {
+    padding: 8px 36px 8px 12px;
+    border: 1px solid #d71e28;
+    border-radius: 32px;
+    width: 90%;
+}
+
+.search-icon {
+    padding: 7px 14px;
+    z-index: 333;
+    position: absolute;
+    right: 11px;
+    color: #d71e28;
+    cursor: pointer;
+}
+
+.custom-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    width: 90%;
+    border: 1px solid #d71e28;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .custom-dropdown option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .custom-dropdown option:hover {
+    background-color: #f0f0f0;
+  }

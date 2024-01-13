@@ -5,7 +5,7 @@ function PlanGuide() {
     return (
         <div className="plan-guide">
             <div className='plan-img'>
-                <img src={plan} />
+                <img src={plan} alt=""/>
             </div>
             <div className="plan-guide-content">
                 <h1>Plan. Prepare. Enjoy home.</h1>

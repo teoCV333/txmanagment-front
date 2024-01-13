@@ -4,9 +4,7 @@ import './LoginButton.css';
 function LoginButton() {
     return (
         <li>
-                <button className="login-btn">
-                    <Link to="/get-into" >Get into</Link>
-                </button>
+            <Link to="/get-into" className="login-btn">Get into</Link>
         </li>
     )
 }

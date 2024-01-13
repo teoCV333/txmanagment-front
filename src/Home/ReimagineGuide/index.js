@@ -5,7 +5,7 @@ function ReimagineGuide() {
     return (
         <div className="reimagine-guide">
             <div className='reimagine-img'>
-                <img src={reimagine} />
+                <img src={reimagine} alt=""/>
             </div>
             <div className="reimagine-guide-content">
                 <h1>Reimagine. Navigate. Move forward.</h1>

@@ -52,7 +52,7 @@ hr.break-line {
     text-align: center;
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 741px) {
     .grid-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

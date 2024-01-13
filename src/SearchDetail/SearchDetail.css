@@ -1,0 +1,83 @@
+.header-detail {
+    background: #e5edf6;
+    color: #006891;
+    text-align: center;
+}
+
+.header-detail .account-number h1, .nameholder h1{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.header-detail .account-number h1 span, .nameholder h1 span{
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.detail-logo-1, .detail-logo-2 {
+    width: 100%;
+}
+
+.detail-logo-1 img, .detail-logo-2 img{
+    width: 100%;
+}
+
+.balance-content {
+    text-align: center;
+}
+
+.balance-content h1{
+    font-weight: 500;
+}
+
+.balance-content h1 span{
+    font-weight: 400;
+}
+
+.balance-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    padding: 5px;
+}
+
+.balance-list li{
+    width: 45%;
+}
+
+.balance-list li h2 {
+    font-weight: 600;  
+    padding: 0px 4px;
+}
+
+.balance-list li h2 span{
+    font-weight: 400;
+}
+
+.download-movements {
+    background: #d61e28;
+    text-align: center;
+}
+
+.download-movements h2 {
+    color: #fff;
+    padding: 10px;
+    font-weight: 400;
+    margin-bottom: 1px;
+    font-size: 32px;
+}
+
+.download-movements button {
+    width: 50%;
+    height: 40px;
+    margin-bottom: 16px;
+    border-radius: 32px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .balance-list li {
+      width: 100%;
+    }
+  }

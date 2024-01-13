@@ -5,7 +5,7 @@ function WhyWeAreCommit() {
     return (
         <div className="why-we-are">
             <div className='why-img'>
-                <img src={why} />
+                <img src={why} alt=""/>
             </div>
             <div className="why-we-are-content">
                 <h1>Why we're committed to communities</h1>

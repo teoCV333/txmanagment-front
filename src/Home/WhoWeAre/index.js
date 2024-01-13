@@ -5,7 +5,7 @@ function WhoWeAre() {
     return (
         <div className="who-we-are">
             <div className='we-img'>
-                <img src={we} />
+                <img src={we} alt=""/>
             </div>
             <div className="who-we-are-content">
                 <h1>Who we are</h1>

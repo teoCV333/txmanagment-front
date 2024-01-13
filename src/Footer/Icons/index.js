@@ -10,12 +10,12 @@ function Icons() {
     return (
        <div className="icons-container">
          <ul >
-            <li><img src={facebook}/></li>
-            <li><img src={linkedin}/></li>
-            <li><img src={instagram}/></li>
-            <li><img src={pinterest}/></li>
-            <li><img src={youtube}/></li>
-            <li><img src={twitter}/></li>
+            <li><img src={facebook} alt=""/></li>
+            <li><img src={linkedin} alt=""/></li>
+            <li><img src={instagram} alt=""/></li>
+            <li><img src={pinterest} alt=""/></li>
+            <li><img src={youtube} alt=""/></li>
+            <li><img src={twitter} alt=""/></li>
         </ul>
        </div>
     );

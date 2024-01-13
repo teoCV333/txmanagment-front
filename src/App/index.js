@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Footer } from '../Footer';
 import { Loggin } from '../Loggin';
+import { SearchDetail } from '../SearchDetail';
+import { PDFExtract } from '../PDFExtract';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/get-into" element={<Loggin />} />
+          <Route path="/get-into/:id" element={<SearchDetail/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
