@@ -1,0 +1,29 @@
+.client-detail-content {
+    text-align: center;
+}
+
+.form-content {
+    display: flex;
+    justify-content: center;
+}
+
+.form-content form{
+    width: 90%;
+}
+
+.form-content form input{
+    padding-right: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-content form button {
+    width: 50%;
+    height: 3%;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 5px ;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

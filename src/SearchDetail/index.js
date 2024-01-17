@@ -18,7 +18,12 @@ import { AuthModal } from './AuthModal';
 
 function SearchDetail() {
     const [autenticated, setAutenticated] = React.useState(false);
+    const [error, setError] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
+    const [password, setPassword] = React.useState('');
+
+    console.log(password);
+
 
     const { id } = useParams();
 
@@ -32,12 +37,19 @@ function SearchDetail() {
         city: 'PHILADELPHIA',
         abreviation: 'PA',
         postalCode: '19138',
+        aBalance: '148.500,00',
+        eCBalance: '0,00',
+        pWDBalance: '148.500,00',
+        cPBalance: '148.500,00',
+        pDCBalance: '148.500,00',
+        totalAvailable: '148.500,00',
         bBalanceDate: '02/01',
-        bBalance: '$582.42',
-        dAdditions: '2,149.45',
-        wSubtractions: '-3,096.469',
+        bBalance: '148.500,00',
+        dAdditions: '0,00',
+        wSubtractions: '0,00',
         eBalanceDate: '02/29',
-        eBalance: '-$364.62'
+        eBalance: '148.500,00',
+        docPassword: 333333
     }
 
     const currentDate = new Date();
@@ -57,6 +69,21 @@ function SearchDetail() {
         day: 'numeric',
     });
 
+    const watchStatements = () => {
+        setOpenModal(true);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(password !== userAccount.docPassword.toString()) {
+            setError(true);
+        } else if(password === userAccount.docPassword.toString()) {
+            setError(false);
+            setOpenModal(false);
+            setPassword('');
+            downloadPDF();
+        }
+    };
 
     const doc = new jsPDF();
 
@@ -510,25 +537,7 @@ money during the time it takes us to complete our investigation`, 104, 140);
 
         doc.addImage(footer, 105, pageHeigth - 40, 100, 8);
 
-        //page
-       /*  doc.setFontSize(10);
-        doc.setFont("arial", "normal");
-        doc.text(formattedDate, 15, 25);
-        doc.addImage(pdfLogo, 'PNG', pageWidth - 30, 10, 18, 18);
-
-        doc.setLineWidth(0.5);
-        doc.line(13, 35, pageWidth - 10, 35);
-        doc.setFont("arial", "bold");
-        doc.text('Monthly service fee summary ', 13, 39);
-
-        doc.setFontSize(9);
-        doc.text('How to avoid the monthly service fee', 22, 45); */
-
         doc.save(`${userAccount.name + '-' + userAccount.lastname}-${idDate}.pdf`);
-    };
-
-    const watchStatements = () => {
-        setOpenModal(true);
     };
 
     return (
@@ -538,34 +547,53 @@ money during the time it takes us to complete our investigation`, 104, 140);
                     <img src={logo1} alt="" />
                 </div>
                 <p className="account-number">
-                    <h1>Account: <span>{userAccount.id}</span></h1>
+                    <h1>Account: <span>{userAccount.accountNumber}</span></h1>
                 </p>
                 <p className="nameholder">
-                    <h1>Name: <span>Fulanito Peralez Duran</span></h1>
+                    <h1>Name: <span>{userAccount.name + ' ' + userAccount.lastname}</span></h1>
                 </p>
                 <div className="detail-logo-2">
                     <img src={logo2} alt="" />
                 </div>
             </div>
             <div className="balance-content">
-                <h1>Available balance: <span>$5000,00</span> </h1>
+                <h1>Available balance: <span>{userAccount.aBalance}</span> </h1>
                 <ul className="balance-list">
-                    <li><h2>Ending collected balance: <span>$0,00</span></h2></li>
-                    <li><h2>Current posted balance: <span>$5000,00</span></h2></li>
-                    <li><h2>Pending deposits/credits: <span>$5000,00</span></h2></li>
-                    <li><h2>Total available: <span>$5000,00</span></h2></li>
+                    <li><h2>Ending collected balance: <span>{userAccount.eCBalance}</span></h2></li>
+                    <li><h2>Current posted balance: <span>{userAccount.cPBalance}</span></h2></li>
+                    <li><h2>Pending withdrawals/debits: <span>${userAccount.pWDBalance}</span></h2></li>
+                    <li><h2>Pending deposits/credits: <span>${userAccount.pDCBalance}</span></h2></li>
+                    <li><h2>Total available: <span>{userAccount.totalAvailable}</span></h2></li>
                 </ul>
             </div>
             <div className="download-movements">
                 <h2>Download bank movements</h2>
-                <button onClick={() => downloadPDF()}>Download</button>
-               {/*  <button onClick={() => watchStatements()}>Download</button>
+                {/* <button onClick={() => downloadPDF()}>Download</button> */}
+                <button onClick={() => watchStatements()}>Download</button>
                 {openModal && (
                     <AuthModal>
-                        <input type='text' placeholder='Password' />
-                        <button>Validate</button>
+                        <form onSubmit={handleSubmit}>
+                            <span className='close-modal' onClick={() => setOpenModal(false)}>X</span>
+                            <label className='modal-title'>This document is password protected. </label>
+                            <input 
+                                className='modal-pass' 
+                                value={password} 
+                                type='password' 
+                                placeholder='Password' 
+                                onChange={(event) => setPassword(event.target.value)}
+                            />
+                            {error && (
+                                <p className='incorrect-pass'>
+                                    <span>Incorrect password.</span>
+                                </p>
+                            )}
+                            <button 
+                                className='modal-btn'
+                                type='submit'
+                            >Validate</button>
+                        </form>
                     </AuthModal>
-                )} */}
+                )}
             </div>
         </div>
     );

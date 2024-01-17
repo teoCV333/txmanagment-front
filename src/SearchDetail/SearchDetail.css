@@ -23,7 +23,8 @@
 }
 
 .balance-content {
-    text-align: center;
+    text-align: start;
+    padding-left: 8px;
 }
 
 .balance-content h1{
@@ -74,6 +75,19 @@
     margin-bottom: 16px;
     border-radius: 32px;
     font-size: 20px;
+}
+
+.incorrect-pass {
+    margin-top: 0;
+    padding: 0;
+    color: red;
+}
+
+.close-modal {
+    position: fixed;
+    top: 10px;
+    font-size: 28px;
+    right: 10px;
 }
 
 @media screen and (max-width: 768px) {

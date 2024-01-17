@@ -1,0 +1,19 @@
+.adminPage {
+    text-align: center;
+    padding: 15px;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+}
+
+.filter input {
+    width: 80%;
+}
+
+.results {
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+}

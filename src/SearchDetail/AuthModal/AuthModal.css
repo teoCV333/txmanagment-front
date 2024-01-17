@@ -1,8 +1,8 @@
 .modal-bg {
     position: fixed;
     display: flex;
-    background-color: transparent;
-    opacity: 70%;
+    background-color: black;
+    opacity: 98%;
     justify-content: center;
     align-items: center;
     color: white;
@@ -10,4 +10,28 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+form {
+    text-align: center;
+}
+
+.modal-title {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-pass {
+    padding: 8px;
+    margin-bottom: 4px;
+    width: 200px;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    background-color: #575a57;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

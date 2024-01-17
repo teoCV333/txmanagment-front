@@ -6,7 +6,8 @@ import './App.css';
 import { Footer } from '../Footer';
 import { Loggin } from '../Loggin';
 import { SearchDetail } from '../SearchDetail';
-import { PDFExtract } from '../PDFExtract';
+import { Admin } from '../Admin';
+import { ClientDetail } from '../ClientDetail';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/get-into" element={<Loggin />} />
           <Route path="/get-into/:id" element={<SearchDetail/>} />
+          <Route path="/admin/client-detail/:account" element={<ClientDetail/>} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
         <Footer />
       </BrowserRouter>

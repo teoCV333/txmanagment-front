@@ -17,6 +17,8 @@ function Loggin() {
 
     const accounts = ['1234 5678 9101 1121', '4444 4444 4444 4444'];
 
+    const autocompleteOptions = ['4444 4444 4444 4444'];
+
     const handleInputChange = (e) => {
         const sanitizedValue = e.target.value.replace(/[^0-9\s]/g, '');
         setInputValue(sanitizedValue);
@@ -42,8 +44,6 @@ function Loggin() {
         setShowOptions(false);
         setInputValue(option);
     }
-
-    const autocompleteOptions = ['123', '456', '789', '987', '654', '321', '4444 4444 4444 4444'];
 
     return (
         <div className="loggin-content">
