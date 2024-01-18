@@ -15,6 +15,7 @@
 
 .reimagine-guide button {
     position: relative;
+    color: #000;
     display: flex;
     justify-content: center;
     left: 5%;

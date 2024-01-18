@@ -1,23 +1,22 @@
 import './Admin.css';
 import DynamicTable from "../ClientsTable";
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function Admin() {
 
+    const navigate = useNavigate();
+
     const [data, setData] = useState([]);
 
-    const clients = [];
-
-
-    /* useEffect(() => {
+    useEffect(() => {
         const fetchData = async () => {
           try {
             const response = await fetch('http://localhost:3001/clients', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
-                // You can include additional headers if needed
               },
             });
     
@@ -36,10 +35,18 @@ function Admin() {
         fetchData();
       }, []);
 
+      const clients = data.map((client) =>({
+        "#":client.id,
+        "nombre":client.name,
+        "apellido":client.lastname,
+        "# de cuenta":client.accountNumber
+      }));
+
     return (
         <div className="adminPage">
             <div className="title">
                 <h1>Clientes</h1>
+                <button onClick={() => { navigate('/admin/create-client')}}>Agregar cliente</button>
             </div>
             <div className="filter">
                 <input placeholder="Buscar por nombre " />
@@ -48,7 +55,7 @@ function Admin() {
                 <DynamicTable data={clients}/>
             </div>
         </div>
-    ); */
+    );
 }
 
 export { Admin };

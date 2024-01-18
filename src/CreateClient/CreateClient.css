@@ -8,14 +8,14 @@
     margin-bottom: 8px;
   }
   
-.form-content input {
+.form-content  input {
     width: 90%;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
   }
   
-.form-content button {
+  .form-content button {
     background-color: #2b2b2b;
     color: white;
     padding: 10px 15px;
@@ -25,20 +25,14 @@
     margin-bottom: 10px;
   }
 
-  .back {
+.back {
     position: absolute;
     display: flex;
     left: 24px;
-  }
-
-  .delete {
-    position: absolute;
-    right: 20px;
-    background-color: rgb(196, 9, 9);
-    top: 97px;
 }
 
-  .form-content button:hover {
+
+.form-content  button:hover {
     background-color: #413f3f;
   }
   

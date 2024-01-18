@@ -8,6 +8,7 @@ import { Loggin } from '../Loggin';
 import { SearchDetail } from '../SearchDetail';
 import { Admin } from '../Admin';
 import { ClientDetail } from '../ClientDetail';
+import { CreateClient } from '../CreateClient';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/get-into/:id" element={<SearchDetail/>} />
           <Route path="/admin/client-detail/:account" element={<ClientDetail/>} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/create-client" element={<CreateClient />} />
         </Routes>
         <Footer />
       </BrowserRouter>

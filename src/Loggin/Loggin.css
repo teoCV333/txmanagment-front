@@ -32,7 +32,8 @@ input {
     padding: 7px 14px;
     z-index: 333;
     position: absolute;
-    right: 11px;
+    right: 12px;
+    top: 2px;
     color: #d71e28;
     cursor: pointer;
 }

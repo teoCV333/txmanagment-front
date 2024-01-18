@@ -19,38 +19,38 @@ import { AuthModal } from './AuthModal';
 function SearchDetail() {
     const [autenticated, setAutenticated] = React.useState(false);
     const [error, setError] = React.useState(false);
+    const [notFound, setNotFound] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
     const [password, setPassword] = React.useState('');
-
-    console.log(password);
-
+    const [userAccount, setClient] = React.useState({});
 
     const { id } = useParams();
 
-    const userAccount = {
-        id: 1,
-        name: 'Fulanito',
-        lastname: 'Peréz Durango',
-        accountNumber: id,
-        address: '7312 N 21ST ST',
-        country: 'Pennsylvania',
-        city: 'PHILADELPHIA',
-        abreviation: 'PA',
-        postalCode: '19138',
-        aBalance: '148.500,00',
-        eCBalance: '0,00',
-        pWDBalance: '148.500,00',
-        cPBalance: '148.500,00',
-        pDCBalance: '148.500,00',
-        totalAvailable: '148.500,00',
-        bBalanceDate: '02/01',
-        bBalance: '148.500,00',
-        dAdditions: '0,00',
-        wSubtractions: '0,00',
-        eBalanceDate: '02/29',
-        eBalance: '148.500,00',
-        docPassword: 333333
-    }
+    React.useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch(`http://localhost:3001/client/${id}`, {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+    
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const result = await response.json();
+            setClient(result);
+            console.log(result)
+          } catch (error) {
+            setNotFound(true);
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     const currentDate = new Date();
 
@@ -75,6 +75,8 @@ function SearchDetail() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(password);
+        console.log(userAccount.docPassword);
         if(password !== userAccount.docPassword.toString()) {
             setError(true);
         } else if(password === userAccount.docPassword.toString()) {
@@ -83,6 +85,10 @@ function SearchDetail() {
             setPassword('');
             downloadPDF();
         }
+    };
+
+    const formatAsCurrency = (amount) => {
+        return Number(amount).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     };
 
     const doc = new jsPDF();
@@ -250,17 +256,17 @@ function SearchDetail() {
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
         doc.text(`Beginning balance on ${userAccount.bBalanceDate}`, 17, 220);
-        doc.text(userAccount.bBalance, 105, 220, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.bBalance), 105, 220, {align: 'right'});
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
         doc.text('Deposits/Additions', 17, 225);
-        doc.text(userAccount.dAdditions, 105, 225, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.dAdditions), 105, 225, {align: 'right'});
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
         doc.text('Withdrawals/Subtractions', 17, 230);
-        doc.text(userAccount.wSubtractions, 105, 230, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.wSubtractions), 105, 230, {align: 'right'});
 
         doc.setLineWidth(0.9);
         doc.line(8, 232, pageWidth - 85, 232);
@@ -268,7 +274,7 @@ function SearchDetail() {
         doc.setFont('arial', 'bold');
         doc.setFontSize(10);
         doc.text(`Ending balance on ${userAccount.eBalanceDate}`, 17, 236);
-        doc.text(userAccount.eBalance, 105, 236, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.eBalance), 105, 236, {align: 'right'});
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(10);
@@ -540,63 +546,77 @@ money during the time it takes us to complete our investigation`, 104, 140);
         doc.save(`${userAccount.name + '-' + userAccount.lastname}-${idDate}.pdf`);
     };
 
-    return (
-        <div className="search-detail">
-            <div className="header-detail" >
-                <div className="detail-logo-1">
-                    <img src={logo1} alt="" />
-                </div>
-                <p className="account-number">
-                    <h1>Account: <span>{userAccount.accountNumber}</span></h1>
-                </p>
-                <p className="nameholder">
-                    <h1>Name: <span>{userAccount.name + ' ' + userAccount.lastname}</span></h1>
-                </p>
-                <div className="detail-logo-2">
-                    <img src={logo2} alt="" />
+    if(notFound) {
+        return (
+            <div className='error-page'>
+               <div>
+                    <h1>Usuario no encontrado.</h1>
+               </div>
+                <div>
+                    <button>Realizar otra busqueda</button>
                 </div>
             </div>
-            <div className="balance-content">
-                <h1>Available balance: <span>{userAccount.aBalance}</span> </h1>
-                <ul className="balance-list">
-                    <li><h2>Ending collected balance: <span>{userAccount.eCBalance}</span></h2></li>
-                    <li><h2>Current posted balance: <span>{userAccount.cPBalance}</span></h2></li>
-                    <li><h2>Pending withdrawals/debits: <span>${userAccount.pWDBalance}</span></h2></li>
-                    <li><h2>Pending deposits/credits: <span>${userAccount.pDCBalance}</span></h2></li>
-                    <li><h2>Total available: <span>{userAccount.totalAvailable}</span></h2></li>
-                </ul>
+        );
+    } else {
+        return (
+            <div className="search-detail">
+                <div className="header-detail" >
+                    <div className="detail-logo-1">
+                        <img src={logo1} alt="" />
+                    </div>
+                    <p className="account-number">
+                        <h1>Account: <span>{userAccount.accountNumber}</span></h1>
+                    </p>
+                    <p className="nameholder">
+                        <h1>Name: <span>{userAccount.name + ' ' + userAccount.lastname}</span></h1>
+                    </p>
+                    <div className="detail-logo-2">
+                        <img src={logo2} alt="" />
+                    </div>
+                </div>
+                <div className="balance-content">
+                    <h1>Available balance: <br /><span>{formatAsCurrency(userAccount.aBalance)}</span> </h1>
+                    <ul className="balance-list">
+                        <li><h2>Ending collected balance: <br /> <span>{formatAsCurrency(userAccount.eCBalance)}</span></h2></li>
+                        <li><h2>Current posted balance: <br /> <span>{formatAsCurrency(userAccount.cPBalance)}</span></h2></li>
+                        <li><h2>Pending withdrawals/debits: <br /> <span>{formatAsCurrency(userAccount.pWDBalance)}</span></h2></li>
+                        <li><h2>Pending deposits/credits: <br /> <span>{formatAsCurrency(userAccount.pDCBalance)}</span></h2></li>
+                        <li><h2>Total available: <br /> <span>{formatAsCurrency(userAccount.totalAvailable)}</span></h2></li>
+                    </ul>
+                </div>
+                <div className="download-movements">
+                    <h2>Download bank movements</h2>
+                    {/* <button onClick={() => downloadPDF()}>Download</button> */}
+                    <button onClick={() => watchStatements()}>Download</button>
+                    {openModal && (
+                        <AuthModal>
+                            <form onSubmit={handleSubmit}>
+                                <span className='close-modal' onClick={() => setOpenModal(false)}>X</span>
+                                <label className='modal-title'>This document is password protected. </label>
+                                <input 
+                                    className='modal-pass' 
+                                    value={password} 
+                                    type='password' 
+                                    placeholder='Password' 
+                                    onChange={(event) => setPassword(event.target.value)}
+                                />
+                                {error && (
+                                    <p className='incorrect-pass'>
+                                        <span>Incorrect password.</span>
+                                    </p>
+                                )}
+                                <button 
+                                    className='modal-btn'
+                                    type='submit'
+                                >Validate</button>
+                            </form>
+                        </AuthModal>
+                    )}
+                </div>
             </div>
-            <div className="download-movements">
-                <h2>Download bank movements</h2>
-                {/* <button onClick={() => downloadPDF()}>Download</button> */}
-                <button onClick={() => watchStatements()}>Download</button>
-                {openModal && (
-                    <AuthModal>
-                        <form onSubmit={handleSubmit}>
-                            <span className='close-modal' onClick={() => setOpenModal(false)}>X</span>
-                            <label className='modal-title'>This document is password protected. </label>
-                            <input 
-                                className='modal-pass' 
-                                value={password} 
-                                type='password' 
-                                placeholder='Password' 
-                                onChange={(event) => setPassword(event.target.value)}
-                            />
-                            {error && (
-                                <p className='incorrect-pass'>
-                                    <span>Incorrect password.</span>
-                                </p>
-                            )}
-                            <button 
-                                className='modal-btn'
-                                type='submit'
-                            >Validate</button>
-                        </form>
-                    </AuthModal>
-                )}
-            </div>
-        </div>
-    );
+        );
+    
+    }
 }
 
 export { SearchDetail };

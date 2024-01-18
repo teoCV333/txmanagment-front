@@ -12,30 +12,64 @@ function Loggin() {
     const [inputValue, setInputValue] = React.useState('');
     const [showOptions, setShowOptions] = React.useState(false);
     const [error, setError] = React.useState({error: false, errorCode: ''});
+    const [data, setData] = React.useState([]);
 
     const navigate = useNavigate();
 
-    const accounts = ['1234 5678 9101 1121', '4444 4444 4444 4444'];
-
-    const autocompleteOptions = ['4444 4444 4444 4444'];
+    React.useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('http://localhost:3001/accounts', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+    
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const result = await response.json();
+            console.log(result)
+            setData(result);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     const handleInputChange = (e) => {
+        console.log(e.target.value)
         const sanitizedValue = e.target.value.replace(/[^0-9\s]/g, '');
         setInputValue(sanitizedValue);
         setShowOptions(true);
-        if(accounts.filter(account => account.replace(/[^0-9\s]/g, '') === sanitizedValue).length === 0) {
+        console.log(data)
+        if(data.filter(account => account.accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue).length === 0) {
             setError({error: false, errorCode: ''});
         }
     };
 
     const handleEnterKeyPress = (e) => {
         if (e.key === 'Enter') {
-            if(accounts.filter(account => account === inputValue).length === 0) {
+            if(data.filter(account => account.accountNumber === inputValue).length === 0) {
                 setError({error: true, errorCode: 404});
                 console.log(error)
             } else {
                 navigate(`/get-into/${inputValue}`);
             }
+        }
+        setShowOptions(false);
+    };
+
+    const submitIcon = () => {
+        if(data.filter(account => account.accountNumber === inputValue).length === 0) {
+            setError({error: true, errorCode: 404});
+            console.log(error)
+        } else {
+            navigate(`/get-into/${inputValue}`);
         }
         setShowOptions(false);
     };
@@ -55,25 +89,25 @@ function Loggin() {
                     type="text"
                     placeholder="Please get into with your user ID."
                     value={inputValue}
-                    onChange={handleInputChange}
+                    onChange={(e) => {handleInputChange(e)}}
                     list="autocompleteOptions"
                     onKeyDown={handleEnterKeyPress}
                     onFocus={() => setShowOptions(true)}
                 />
-                {showOptions && (
+                {(showOptions && inputValue != '' && data.filter((option) => option.accountNumber.includes(inputValue)).length > 0) && (
                     <div className="custom-dropdown">
-                        {autocompleteOptions.map((option, index) => (
-                            <option key={index} onClick={() => selectOption(option)}>
-                                {option}
+                        {data
+                         .filter((option) => option.accountNumber.includes(inputValue))
+                        .map((option, index) => (
+                            <option key={index} onClick={() => selectOption(option.accountNumber)}>
+                                {option.accountNumber}
                             </option>
                         ))}
                     </div>
                 )}
                 {(error.error) && (<FontAwesomeIcon onClick={() => setInputValue('')} icon={faTimesCircle} className="search-icon" />)}
                 {(!error.error) && (
-                    <Link to={`/get-into/${inputValue}`}  className="search-icon">
-                            <FontAwesomeIcon icon={faSearch} />
-                    </Link>   
+                            <FontAwesomeIcon onClick={() => submitIcon()} className="search-icon" icon={faSearch} />
                 )}
                 
             </div>

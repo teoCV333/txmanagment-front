@@ -17,3 +17,21 @@
     display: flex;
     justify-content: center;
 }
+
+.title {
+    text-align: center;
+    display: grid;
+    justify-content: center;
+}
+
+.title h1 {
+    margin-bottom: 5px;
+}
+
+.title button {
+    height: 40px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}

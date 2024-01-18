@@ -8,6 +8,7 @@ const DynamicTable = ({ data }) => {
 
   const headers = ["#", "nombre", "apellido", "# de cuenta"];
 
+  console.log(data)
   const clientDetail = (accountNumber) => {
     navigate(`/admin/client-detail/${accountNumber}`)
   };

@@ -27,13 +27,18 @@
     padding-left: 8px;
 }
 
-.balance-content h1{
-    font-weight: 500;
-}
 
 .balance-content h1 span{
     font-weight: 400;
 }
+
+
+.balance-content h1 {
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+}
+
 
 .balance-list {
     display: flex;
@@ -49,7 +54,6 @@
 
 .balance-list li h2 {
     font-weight: 600;  
-    padding: 0px 4px;
 }
 
 .balance-list li h2 span{
@@ -90,8 +94,42 @@
     right: 10px;
 }
 
+.error-page {
+    display: table;
+    text-align: center;
+    justify-content: center;
+}
+
+.balance-content {
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1, h2 {
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+.balance-list {
+    list-style: none;
+    padding: 0;
+}
+
+.balance-list li {
+    margin-bottom: 15px;
+}
+
+/* Responsive styles for smaller screens */
+
 @media screen and (max-width: 768px) {
     .balance-list li {
-      width: 100%;
+      text-align: center;
     }
   }
