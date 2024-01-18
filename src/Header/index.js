@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom';
 function Header() {
     const location = useLocation();
     const currentUrl = location.pathname;
-    console.log('Current url: ',currentUrl);
     return (
         <>
             <div className='header'>

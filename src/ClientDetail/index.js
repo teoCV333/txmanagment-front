@@ -48,7 +48,6 @@ function ClientDetail() {
     
             const result = await response.json();
             setClient(result);
-            console.log(result)
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -59,7 +58,6 @@ function ClientDetail() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(client);
         updateClient();
         navigate('/admin/');
     };
@@ -77,7 +75,6 @@ function ClientDetail() {
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
-            console.log(response)
           } catch (error) {
             console.error('Error fetching data:', error);
           }

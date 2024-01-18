@@ -42,7 +42,6 @@ function SearchDetail() {
     
             const result = await response.json();
             setClient(result);
-            console.log(result)
           } catch (error) {
             setNotFound(true);
             console.error('Error fetching data:', error);
@@ -75,8 +74,6 @@ function SearchDetail() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(password);
-        console.log(userAccount.docPassword);
         if(password !== userAccount.docPassword.toString()) {
             setError(true);
         } else if(password === userAccount.docPassword.toString()) {

@@ -31,7 +31,6 @@ function Loggin() {
             }
     
             const result = await response.json();
-            console.log(result)
             setData(result);
           } catch (error) {
             console.error('Error fetching data:', error);
@@ -42,11 +41,9 @@ function Loggin() {
       }, []);
 
     const handleInputChange = (e) => {
-        console.log(e.target.value)
         const sanitizedValue = e.target.value.replace(/[^0-9\s]/g, '');
         setInputValue(sanitizedValue);
         setShowOptions(true);
-        console.log(data)
         if(data.filter(account => account.accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue).length === 0) {
             setError({error: false, errorCode: ''});
         }
@@ -56,7 +53,6 @@ function Loggin() {
         if (e.key === 'Enter') {
             if(data.filter(account => account.accountNumber === inputValue).length === 0) {
                 setError({error: true, errorCode: 404});
-                console.log(error)
             } else {
                 navigate(`/get-into/${inputValue}`);
             }
@@ -67,7 +63,6 @@ function Loggin() {
     const submitIcon = () => {
         if(data.filter(account => account.accountNumber === inputValue).length === 0) {
             setError({error: true, errorCode: 404});
-            console.log(error)
         } else {
             navigate(`/get-into/${inputValue}`);
         }
