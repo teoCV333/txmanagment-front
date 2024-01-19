@@ -91,7 +91,7 @@ function Loggin() {
                     onKeyDown={handleEnterKeyPress}
                     onFocus={() => setShowOptions(true)}
                 />
-                {(showOptions && inputValue != '' && data.filter((option) => option.accountNumber.includes(inputValue)).length > 0) && (
+                {(showOptions && inputValue != '') && (
                     <div className="custom-dropdown">
                         {data
                          .filter((option) => option.accountNumber.includes(inputValue))
