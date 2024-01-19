@@ -43,10 +43,10 @@ function Loggin() {
       }, []);
 
     const handleInputChange = (e) => {
-        const sanitizedValue = e.target.value.replace(/[^0-9\s]/g, '');
+        const sanitizedValue = e.target.value;
         setInputValue(sanitizedValue);
         setShowOptions(true);
-        if(data.filter(account => account.accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue).length === 0) {
+        if(data.filter(account => account.accountNumber === sanitizedValue).length === 0) {
             setError({error: false, errorCode: ''});
         }
     };
