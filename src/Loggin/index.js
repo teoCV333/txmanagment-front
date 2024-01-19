@@ -93,9 +93,7 @@ function Loggin() {
                 />
                 {(showOptions && inputValue != '') && (
                     <div className="custom-dropdown">
-                        {data
-                         .filter((option) => option.accountNumber.includes(inputValue))
-                        .map((option, index) => (
+                        {data.map((option, index) => (
                             <option key={index} onClick={() => selectOption(option.accountNumber)}>
                                 {option.accountNumber}
                             </option>
