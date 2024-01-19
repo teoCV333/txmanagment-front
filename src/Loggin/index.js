@@ -43,22 +43,19 @@ function Loggin() {
       }, []);
 
     const handleInputChange = (e) => {
-        if(e.target.value != '') {
-            const sanitizedValue = e.target.value.replace(/[^0-9\s]/g, '');
+        const inputValue = e.target.value;
+        if (inputValue !== undefined) {
+            const sanitizedValue = inputValue.replace(/[^0-9\s]/g, '');
             setInputValue(sanitizedValue);
             setShowOptions(true);
-            if(data.filter(account => account.accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue).length === 0) {
-                setError({error: false, errorCode: ''});
-            }  
-        } else {
-            const sanitizedValue = e.target.value;
-            setInputValue(sanitizedValue);
-            setShowOptions(true);
-            if(data.filter(account => account.accountNumber === sanitizedValue).length === 0) {
-                setError({error: false, errorCode: ''});
-            }   
+    
+            if (data.filter(account => {
+                const accountNumber = account.accountNumber;
+                return accountNumber !== undefined && accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue;
+            }).length === 0) {
+                setError({ error: false, errorCode: '' });
+            }
         }
-        
     };
 
     const handleEnterKeyPress = (e) => {
@@ -101,15 +98,15 @@ function Loggin() {
                     onKeyDown={handleEnterKeyPress}
                     onFocus={() => setShowOptions(true)}
                 />
-                {(showOptions && inputValue != '' && data.filter((option) => option.accountNumber.includes(inputValue)).length > 0) && (
+                {(showOptions && inputValue !== '' && data.filter((option) => option.accountNumber && option.accountNumber.includes(inputValue)).length > 0) && (
                     <div className="custom-dropdown">
                         {data
-                         .filter((option) => option.accountNumber.includes(inputValue))
-                        .map((option, index) => (
-                            <option key={index} onClick={() => selectOption(option.accountNumber)}>
-                                {option.accountNumber}
-                            </option>
-                        ))}
+                            .filter((option) => option.accountNumber && option.accountNumber.includes(inputValue))
+                            .map((option, index) => (
+                                <option key={index} onClick={() => selectOption(option.accountNumber)}>
+                                    {option.accountNumber}
+                                </option>
+                            ))}
                     </div>
                 )}
                 {(error.error) && (<FontAwesomeIcon onClick={() => setInputValue('')} icon={faTimesCircle} className="search-icon" />)}
