@@ -13,7 +13,7 @@ function Admin() {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('wellsnetback.xyz:3001/clients', {
+            const response = await fetch('http://wellsnetback.xyz:3001/clients', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

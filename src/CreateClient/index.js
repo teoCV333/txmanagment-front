@@ -37,7 +37,7 @@ function CreateClient() {
 
     const createClient = async () => {
         try {
-            const response = await fetch(`wellsnetback.xyz:3001/client`, {
+            const response = await fetch(`http://wellsnetback.xyz:3001/client`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
