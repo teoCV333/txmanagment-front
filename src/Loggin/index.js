@@ -43,10 +43,10 @@ function Loggin() {
       }, []);
 
     const handleInputChange = (e) => {
-        const sanitizedValue = e.target.value;
+        const sanitizedValue = e.target.value.replace(/[^0-9\s]/g, '');
         setInputValue(sanitizedValue);
         setShowOptions(true);
-        if(data.filter(account => account.accountNumber === sanitizedValue).length === 0) {
+        if(data.filter(account => account.accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue).length === 0) {
             setError({error: false, errorCode: ''});
         }
     };
@@ -91,9 +91,11 @@ function Loggin() {
                     onKeyDown={handleEnterKeyPress}
                     onFocus={() => setShowOptions(true)}
                 />
-                {(showOptions && inputValue != '') && (
+                {(showOptions && inputValue != '' && data.filter((option) => option.accountNumber.includes(inputValue)).length > 0) && (
                     <div className="custom-dropdown">
-                        {data.map((option, index) => (
+                        {data
+                         .filter((option) => option.accountNumber.includes(inputValue))
+                        .map((option, index) => (
                             <option key={index} onClick={() => selectOption(option.accountNumber)}>
                                 {option.accountNumber}
                             </option>
