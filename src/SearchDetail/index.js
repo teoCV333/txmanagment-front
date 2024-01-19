@@ -29,7 +29,7 @@ function SearchDetail() {
     React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`http://localhost:3001/client/${id}`, {
+            const response = await fetch(`http://3.81.82.209:3001/client/${id}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

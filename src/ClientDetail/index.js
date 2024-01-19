@@ -35,7 +35,7 @@ function ClientDetail() {
     React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`http://localhost:3001/client/${account}`, {
+            const response = await fetch(`http://3.81.82.209:3001/client/${account}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function ClientDetail() {
 
     const updateClient = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/client/${client.id}`, {
+            const response = await fetch(`54.158.104.250:3001/client/${client.id}`, {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ function ClientDetail() {
         const confirmed = window.confirm('¿Estás seguro de que deseas eliminar este registro?');
         if (confirmed) {
         try {
-            const response = await fetch(`http://localhost:3001/client/${client.id}`, {
+            const response = await fetch(`http://54.158.104.250:3001/client/${client.id}`, {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
