@@ -22,11 +22,36 @@ function SearchDetail() {
     const [notFound, setNotFound] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
     const [password, setPassword] = React.useState('');
-    const [userAccount, setClient] = React.useState({});
+    /* const [userAccount, setClient] = React.useState({}); */
+
+    const userAccount = {
+        id: 1,
+        name: "fulanito",
+        lastname: "perales",
+        accountNumber: "3333333333333333",
+        address: "7312 N 21ST ST",
+        country: "Pennsylvania",
+        city: "PHILADELPHIA",
+        abreviation: "PA",
+        postalCode: "19138",
+        aBalance: "148500",
+        eCBalance: "0",
+        pWDBalance: "148500",
+        cPBalance: "148500",
+        pDCBalance: "148500",
+        totalAvailable: "148500",
+        bBalanceDate: "02/01",
+        bBalance: "148500",
+        dAdditions: "0",
+        wSubtractions: "0",
+        eBalanceDate: "02/29",
+        eBalance: "148500",
+        docPassword: "333333"
+    };
 
     const { id } = useParams();
 
-    React.useEffect(() => {
+    /* React.useEffect(() => {
         const fetchData = async () => {
           try {
             const response = await fetch(`https://wellsnetback.xyz:3001/client/${id}`, {
@@ -49,7 +74,7 @@ function SearchDetail() {
         };
     
         fetchData();
-      }, []);
+      }, []); */
 
     const currentDate = new Date();
 
