@@ -35,7 +35,7 @@ function ClientDetail() {
     React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`http://wellsnetback.xyz:3001/client/${account}`, {
+            const response = await fetch(`https://wellsnetback.xyz:3001/client/${account}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

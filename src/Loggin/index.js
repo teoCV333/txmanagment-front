@@ -21,7 +21,7 @@ function Loggin() {
     React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://wellsnetback.xyz:3001/accounts', {
+            const response = await fetch('https://wellsnetback.xyz:3001/accounts', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
