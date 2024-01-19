@@ -1,5 +1,5 @@
 import './Admin.css';
-import DynamicTable from "../ClientsTable";
+import DynamicTable from "../ClientsTable/index.js";
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

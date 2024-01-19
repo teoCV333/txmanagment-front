@@ -1,16 +1,16 @@
 import './Home.css';
-import { BonusOnUs } from './BonusOnUs';
-import { CashReward } from './CashReward';
-import { FindCC } from './FindCC';
-import { GetCollege } from './GetCollege';
-import { InterestRates } from './InterestRates';
-import { GetCashBonus } from './GetCashBonus';
-import { PlanGuide } from './PlanGuide';
-import { ReimagineGuide } from './ReimagineGuide';
-import { DreamGuide } from './DreamGuide';
-import { AppAd } from './AppAd';
-import { WhoWeAre } from './WhoWeAre';
-import { WhyWeAreCommit } from './WhyWeAreCommit';
+import { BonusOnUs } from './BonusOnUs/index.js';
+import { CashReward } from './CashReward/index.js';
+import { FindCC } from './FindCC/index.js';
+import { GetCollege } from './GetCollege/index.js';
+import { InterestRates } from './InterestRates/index.js';
+import { GetCashBonus } from './GetCashBonus/index.js';
+import { PlanGuide } from './PlanGuide/index.js';
+import { ReimagineGuide } from './ReimagineGuide/index.js';
+import { DreamGuide } from './DreamGuide/index.js';
+import { AppAd } from './AppAd/index.js';
+import { WhoWeAre } from './WhoWeAre/index.js';
+import { WhyWeAreCommit } from './WhyWeAreCommit/index.js';
 
 function Home() {
     return (

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Home } from '../Home';
-import { Header } from '../Header';
+import { Home } from '../Home/index.js';
+import { Header } from '../Header/index.js';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Footer } from '../Footer';
-import { Loggin } from '../Loggin';
-import { SearchDetail } from '../SearchDetail';
-import { Admin } from '../Admin';
-import { ClientDetail } from '../ClientDetail';
-import { CreateClient } from '../CreateClient';
+import { Footer } from '../Footer/index.js';
+import { Loggin } from '../Loggin/index.js';
+import { SearchDetail } from '../SearchDetail/index.js';
+import { Admin } from '../Admin/index.js';
+import { ClientDetail } from '../ClientDetail/index.js';
+import { CreateClient } from '../CreateClient/index.js';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import './Header.css';
-import { Logo } from './Logo';
-import { LoginButton } from './LoginButton';
-import { HomeButton } from './HomeButton';
+import { Logo } from './Logo/index.js';
+import { LoginButton } from './LoginButton/index.js';
+import { HomeButton } from './HomeButton/index.js';
 import { useLocation } from 'react-router-dom';
 
 function Header() {

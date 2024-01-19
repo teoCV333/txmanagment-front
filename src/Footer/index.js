@@ -1,6 +1,6 @@
-import { Conditions } from './Conditions';
+import { Conditions } from './Conditions/index.js';
 import './Footer.css';
-import { Icons } from './Icons';
+import { Icons } from './Icons/index.js';
 
 function Footer() {
     return (
