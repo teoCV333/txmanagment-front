@@ -1,6 +1,5 @@
 import './Admin.css';
 import DynamicTable from "../ClientsTable/index.js";
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -8,9 +7,16 @@ function Admin() {
 
     const navigate = useNavigate();
 
-    const [data, setData] = useState([]);
+    const data = [
+     {
+       id: 1,
+       name: "prueba",
+       lastname: "prueba",
+       accountNumber: "6666 6666 6666 6666"
+      }
+    ];
 
-    useEffect(() => {
+    /* useEffect(() => {
         const fetchData = async () => {
           try {
             const response = await fetch('https://wellsnetback.xyz:3001/clients', {
@@ -32,7 +38,7 @@ function Admin() {
         };
     
         fetchData();
-      }, []);
+      }, []); */
 
       const clients = data.map((client) =>({
         "#":client.id,

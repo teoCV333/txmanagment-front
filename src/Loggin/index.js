@@ -4,7 +4,7 @@ import logo1 from './loginlogo1.png';
 import logo2 from './loginlogo2.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -17,8 +17,7 @@ function Loggin() {
     ]);*/
 
     const data = [
-        '3333333333333333',
-        '6666666666666666'
+        '3333333333333333'
     ]
 
     const navigate = useNavigate();
@@ -48,45 +47,62 @@ function Loggin() {
       }, []); */
 
     const handleInputChange = (e) => {
-        const inputValue = e.target.value;
-        if (inputValue !== undefined) {
-            const sanitizedValue = inputValue.replace(/[^0-9\s]/g, '');
-            setInputValue(sanitizedValue);
-            setShowOptions(true);
-    
-            if (data.filter(account => {
-                const accountNumber = account.accountNumber;
-                return accountNumber !== undefined && accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue;
-            }).length === 0) {
-                setError({ error: false, errorCode: '' });
+        try {
+            const inputValue = e.target.value;
+            if (inputValue !== undefined) {
+                const sanitizedValue = inputValue.replace(/[^0-9\s]/g, '');
+                setInputValue(sanitizedValue);
+                setShowOptions(true);
+        
+                if (data.filter(account => {
+                    const accountNumber = account.accountNumber;
+                    return accountNumber !== undefined && accountNumber.replace(/[^0-9\s]/g, '') === sanitizedValue;
+                }).length === 0) {
+                    setError({ error: false, errorCode: '' });
+                }
             }
+        } catch(err) {
+            console.error('Error: ', err);
         }
+        
     };
 
     const handleEnterKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            if(data.filter(account => account.accountNumber === inputValue).length === 0) {
-                setError({error: true, errorCode: 404});
-            } else {
-                navigate(`/get-into/${inputValue}`);
+        try {
+            if (e.key === 'Enter') {
+                if(data.filter(account => account.accountNumber === inputValue).length === 0) {
+                    setError({error: true, errorCode: 404});
+                } else {
+                    navigate(`/get-into/${inputValue}`);
+                }
             }
+            setShowOptions(false);
+        } catch(err) {
+            console.error('Error: ', err);
         }
-        setShowOptions(false);
     };
 
     const submitIcon = () => {
-        if(data.filter(account => account === inputValue).length === 0) {
+        try {
+            if(data.filter(account => account === inputValue).length === 0) {
             setError({error: true, errorCode: 404});
-        } else {
-            navigate(`/get-into/${inputValue}`);
+            } else {
+                navigate(`/get-into/${inputValue}`);
+            }
+            setShowOptions(false);
+        } catch(err) {
+            console.error('Error: ', err);
         }
-        setShowOptions(false);
     };
 
     const selectOption = (option) => {
-        setShowOptions(false);
-        setInputValue(option);
-    }
+        try {
+            setShowOptions(false);
+            setInputValue(option);
+        } catch(err) {
+            console.error('Error: ', err);
+        }
+    };
 
     return (
         <div className="loggin-content">

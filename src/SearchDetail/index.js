@@ -582,16 +582,16 @@ money during the time it takes us to complete our investigation`, 104, 140);
     } else {
         return (
             <div className="search-detail">
-                <div className="header-detail" >
+                <div className="header-detail">
                     <div className="detail-logo-1">
                         <img src={logo1} alt="" />
                     </div>
-                    <p className="account-number">
+                    <div className="account-number">
                         <h1>Account: <span>{userAccount.accountNumber}</span></h1>
-                    </p>
-                    <p className="nameholder">
+                    </div>
+                    <div className="nameholder">
                         <h1>Name: <span>{userAccount.name + ' ' + userAccount.lastname}</span></h1>
-                    </p>
+                    </div>
                     <div className="detail-logo-2">
                         <img src={logo2} alt="" />
                     </div>
@@ -615,11 +615,11 @@ money during the time it takes us to complete our investigation`, 104, 140);
                             <form onSubmit={handleSubmit}>
                                 <span className='close-modal' onClick={() => setOpenModal(false)}>X</span>
                                 <label className='modal-title'>This document is password protected. </label>
-                                <input 
-                                    className='modal-pass' 
-                                    value={password} 
-                                    type='password' 
-                                    placeholder='Password' 
+                                <input
+                                    className='modal-pass'
+                                    value={password}
+                                    type='password'
+                                    placeholder='Password'
                                     onChange={(event) => setPassword(event.target.value)}
                                 />
                                 {error && (
@@ -627,7 +627,7 @@ money during the time it takes us to complete our investigation`, 104, 140);
                                         <span>Incorrect password.</span>
                                     </p>
                                 )}
-                                <button 
+                                <button
                                     className='modal-btn'
                                     type='submit'
                                 >Validate</button>
@@ -637,7 +637,6 @@ money during the time it takes us to complete our investigation`, 104, 140);
                 </div>
             </div>
         );
-    
     }
 }
 

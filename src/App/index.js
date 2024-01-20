@@ -11,22 +11,22 @@ import { ClientDetail } from '../ClientDetail/index.js';
 import { CreateClient } from '../CreateClient/index.js';
 
 function App() {
-  return (
-    <React.Fragment>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/get-into" element={<Loggin />} />
-          <Route path="/get-into/:id" element={<SearchDetail/>} />
-          <Route path="/admin/client-detail/:account" element={<ClientDetail/>} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/create-client" element={<CreateClient />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </React.Fragment>
-  );
+    return (
+      <React.Fragment>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/get-into" element={<Loggin />} />
+            <Route path="/get-into/:id" element={<SearchDetail/>} />
+            <Route path="/admin/client-detail/:account" element={<ClientDetail/>} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/create-client" element={<CreateClient />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </React.Fragment>
+    );
 }
 
 export default App;

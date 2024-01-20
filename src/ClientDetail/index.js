@@ -1,38 +1,36 @@
-import { useParams } from "react-router-dom";
 import './ClientDetail.css';
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function ClientDetail() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { account } = useParams();
-
-    const [client, setClient] = React.useState({
-        name: "",
-        lastname: "",
-        accountNumber: "",
-        address: "",
-        country: "",
-        city: "",
-        abreviation: "",
-        postalCode: "",
-        aBalance: "",
-        eCBalance: "",
-        pWDBalance: "",
-        cPBalance: "",
-        pDCBalance: "",
-        totalAvailable: "",
-        bBalanceDate: "",
-        bBalance: "",
-        dAdditions: "",
-        wSubtractions: "",
-        eBalanceDate: "",
-        eBalance: "",
-        docPassword: ""
-    });
-
-    React.useEffect(() => {
+  const [client, setClient] = React.useState({
+    name: "",
+    lastname: "",
+    accountNumber: "",
+    address: "",
+    country: "",
+    city: "",
+    abreviation: "",
+    postalCode: "",
+    aBalance: "",
+    eCBalance: "",
+    pWDBalance: "",
+    cPBalance: "",
+    pDCBalance: "",
+    totalAvailable: "",
+    bBalanceDate: "",
+    bBalance: "",
+    dAdditions: "",
+    wSubtractions: "",
+    eBalanceDate: "",
+    eBalance: "",
+    docPassword: ""
+  });
+  
+  try {
+    /* React.useEffect(() => {
         const fetchData = async () => {
           try {
             const response = await fetch(`https://wellsnetback.xyz:3001/client/${account}`, {
@@ -54,7 +52,7 @@ function ClientDetail() {
         };
     
         fetchData();
-      }, []);
+      }, []); */
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -180,6 +178,9 @@ function ClientDetail() {
            </div>
         </div>
     );
+  } catch(err) {
+    console.error('Client detail Error: ', err);
+  }
 }
 
 export { ClientDetail };
