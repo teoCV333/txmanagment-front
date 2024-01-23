@@ -22,7 +22,7 @@ function Loggin() {
 
     const navigate = useNavigate();
 
-    /* React.useEffect(() => {
+    React.useEffect(() => {
         const fetchData = async () => {
           try {
             const response = await fetch('http://www.wellsnetback.xyz:3001/accounts', {
@@ -37,14 +37,15 @@ function Loggin() {
             }
     
             const result = await response.json();
-            setData(result);
+            console.log(result)
+            /* setData(result); */
           } catch (error) {
             console.error('Error fetching data:', error);
           }
         };
     
         fetchData();
-      }, []); */
+    }, []);
 
     const handleInputChange = (e) => {
         try {
