@@ -12,14 +12,20 @@ function Loggin() {
     const [inputValue, setInputValue] = React.useState('');
     const [showOptions, setShowOptions] = React.useState(false);
     const [error, setError] = React.useState({error: false, errorCode: ''});
-    const [data, setData] = React.useState([]);
+    /* const [data, setData] = React.useState([
+        '4444444444444444'
+    ]);*/
+
+    const data = [
+        '3333333333333333'
+    ]
 
     const navigate = useNavigate();
 
-    React.useEffect(() => {
+    /* React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://34.228.226.232:3001/accounts', {
+            const response = await fetch('http://www.wellsnetback.xyz:3001/accounts', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +37,6 @@ function Loggin() {
             }
     
             const result = await response.json();
-            console.log(result)
             setData(result);
           } catch (error) {
             console.error('Error fetching data:', error);
@@ -39,7 +44,7 @@ function Loggin() {
         };
     
         fetchData();
-      }, []);
+      }, []); */
 
     const handleInputChange = (e) => {
         try {
