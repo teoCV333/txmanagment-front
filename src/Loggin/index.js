@@ -17,7 +17,7 @@ function Loggin() {
     ]);*/
 
     const data = [
-/*         '4323 5901 5246 4063', */
+        '4323 5901 5246 4063',
     ]
 
     const navigate = useNavigate();
