@@ -24,32 +24,65 @@ function SearchDetail() {
     const [password, setPassword] = React.useState('');
     /* const [userAccount, setClient] = React.useState({}); */
 
-    const userAccount = {
-        id: 1,
-        name: "fulanito",
-        lastname: "perales",
-        accountNumber: "3333333333333333",
-        address: "7312 N 21ST ST",
-        country: "Pennsylvania",
-        city: "PHILADELPHIA",
-        abreviation: "PA",
-        postalCode: "19138",
-        aBalance: "148500",
-        eCBalance: "0",
-        pWDBalance: "148500",
-        cPBalance: "148500",
-        pDCBalance: "148500",
-        totalAvailable: "148500",
-        bBalanceDate: "02/01",
-        bBalance: "148500",
-        dAdditions: "0",
-        wSubtractions: "0",
-        eBalanceDate: "02/29",
-        eBalance: "148500",
-        docPassword: "333333"
-    };
+    const userAccounts = [
+        {
+            id: 1,
+            name: "fulanito",
+            lastname: "perales",
+            accountNumber: "3333333333333333",
+            address: "7312 N 21ST ST",
+            country: "Pennsylvania",
+            city: "PHILADELPHIA",
+            abreviation: "PA",
+            postalCode: "19138",
+            aBalance: "148500",
+            eCBalance: "0",
+            pWDBalance: "148500",
+            cPBalance: "148500",
+            pDCBalance: "148500",
+            totalAvailable: "148500",
+            bBalanceDate: "02/01",
+            bBalance: "148500",
+            dAdditions: "0",
+            wSubtractions: "0",
+            eBalanceDate: "02/29",
+            eBalance: "148500",
+            docPassword: "333333"
+        },
+        {
+            id: 1,
+            name: "Delfino",
+            lastname: "Memije Salgado",
+            accountNumber: "4323 5901 5246 4063",
+            address: "5819 SANTA FE AV",
+            country: "USA",
+            city: "TX",
+            abreviation: "TX",
+            postalCode: "75214",
+            aBalance: "148500",
+            eCBalance: "0",
+            pWDBalance: "148500",
+            cPBalance: "148500",
+            pDCBalance: "148500",
+            totalAvailable: "148500",
+            bBalanceDate: "01/01",
+            bBalance: "148500",
+            dAdditions: "0",
+            wSubtractions: "0",
+            eBalanceDate: "01/31",
+            eBalance: "148500",
+            docPassword: "205823992",
+            tax: "14850"
+        }
+    ];
 
     const { id } = useParams();
+
+    console.log(id);
+
+    const userAccount = userAccounts.filter((account) => account.accountNumber === id)[0];
+
+    console.log(userAccount);
 
     /* React.useEffect(() => {
         const fetchData = async () => {
