@@ -12,13 +12,7 @@ function Loggin() {
     const [inputValue, setInputValue] = React.useState('');
     const [showOptions, setShowOptions] = React.useState(false);
     const [error, setError] = React.useState({error: false, errorCode: ''});
-    /* const [data, setData] = React.useState([
-        '4444444444444444'
-    ]);*/
-
-    const data = [
-        '3333333333333333'
-    ]
+    const [data, setData] = React.useState([]);
 
     const navigate = useNavigate();
 
@@ -38,7 +32,7 @@ function Loggin() {
     
             const result = await response.json();
             console.log(result)
-            //setData(result);
+            setData(result);
           } catch (error) {
             console.error('Error fetching data:', error);
           }
