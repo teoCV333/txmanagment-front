@@ -78,11 +78,7 @@ function SearchDetail() {
 
     const { id } = useParams();
 
-    console.log(id);
-
     const userAccount = userAccounts.filter((account) => account.accountNumber === id)[0];
-
-    console.log(userAccount);
 
     /* React.useEffect(() => {
         const fetchData = async () => {
