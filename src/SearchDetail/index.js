@@ -362,6 +362,25 @@ function SearchDetail() {
         doc.text('This account is not currently covered by Overdraft Protection. If you would like more information regarding Overdraft Protection and eligibility requirements', 8, 255);
         doc.text('please call the number listed on your statement or visit your Wells Fargo branch.', 8, 259);
 
+        doc.setFont('arial', 'bold');
+        doc.setFontSize(10);
+        doc.text('Monthly service fee summary', 8, 268); 
+
+        doc.setFont('arial', 'normal');
+        doc.setFontSize(8.5);
+        doc.text('For a complete list of fees and detailed account information, see the disclosures applicable to your account or talk to a banker', 8, 273);
+        doc.text('for a link to these documents, and answers to common monthly service fee questions.', 8, 277);
+
+
+        doc.text(`Fee period ${month}/${day}/${year} - ${userAccount.eBalanceDate}/${year}`, 8, 288);
+        doc.text(formatAsCurrency(userAccount.tax), pageWidth - 100, 288);
+
+        doc.setLineWidth(0.7);
+        doc.line(8, 290, pageWidth - 85, 290);
+
+    
+
+
         doc.addPage();
 
         doc.setFontSize(10);
