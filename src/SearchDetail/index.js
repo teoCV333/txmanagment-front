@@ -56,7 +56,7 @@ function SearchDetail() {
             accountNumber: "4323 5901 5246 4063",
             address: "5819 SANTA FE AV",
             country: "USA",
-            city: "TX",
+            city: "TEXAS",
             abreviation: "TX",
             postalCode: "75214",
             aBalance: "148500",
