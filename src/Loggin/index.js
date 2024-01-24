@@ -25,7 +25,7 @@ function Loggin() {
     React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('https://www.wellsnetback.xyz:3001/accounts', {
+            const response = await fetch('http://34.228.226.232:3001/accounts', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -38,14 +38,14 @@ function Loggin() {
     
             const result = await response.json();
             console.log(result)
-            /* setData(result); */
+            //setData(result);
           } catch (error) {
             console.error('Error fetching data:', error);
           }
         };
     
         fetchData();
-    }, []);
+      }, []);
 
     const handleInputChange = (e) => {
         try {
