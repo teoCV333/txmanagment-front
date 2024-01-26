@@ -3,7 +3,7 @@ import taxes from './taxes.png';
 
 function InterestRates() {
     return (
-        <div className="es">
+        <div className="interest-rates">
             <div className="rates-logo">
                 <img src={taxes} alt=""/>
             </div>
