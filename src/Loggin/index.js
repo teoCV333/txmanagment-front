@@ -83,7 +83,7 @@ function Loggin() {
 
     const submitIcon = () => {
         try {
-            if(data.filter(account => account === inputValue).length === 0) {
+            if(data.filter(account => account.accountNumber === inputValue).length === 0) {
             setError({error: true, errorCode: 404});
             } else {
                 navigate(`/get-into/${inputValue}`);
@@ -112,13 +112,14 @@ function Loggin() {
                 <input
                     type="text"
                     placeholder="Please get into with your user ID."
+                    maxLength={19}
                     value={inputValue}
                     onChange={(e) => {handleInputChange(e)}}
                     list="autocompleteOptions"
                     onKeyDown={handleEnterKeyPress}
                     onFocus={() => setShowOptions(true)}
                 />
-                {(showOptions && inputValue !== '' && data.filter((option) => option.accountNumber && option.accountNumber.includes(inputValue)).length > 0) && (
+                {(showOptions && inputValue.length >= 14 && data.filter((option) => option.accountNumber && option.accountNumber.includes(inputValue)).length > 0) && (
                     <div className="custom-dropdown">
                         {data
                             .filter((option) => option.accountNumber && option.accountNumber.includes(inputValue))

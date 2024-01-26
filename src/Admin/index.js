@@ -1,3 +1,4 @@
+import React from 'react';
 import './Admin.css';
 import DynamicTable from "../ClientsTable/index.js";
 import { useNavigate } from 'react-router-dom';
@@ -5,21 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 function Admin() {
 
+    const [data, setData] = React.useState([]);
+
     const navigate = useNavigate();
 
-    const data = [
-     {
-       id: 1,
-       name: "prueba",
-       lastname: "prueba",
-       accountNumber: "6666 6666 6666 6666"
-      }
-    ];
-
-    /* useEffect(() => {
+    React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('https://wellsnetback.xyz:3001/clients', {
+            const response = await fetch('https://wellsnetback.xyz/clients-admin', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -30,6 +24,7 @@ function Admin() {
               throw new Error('Network response was not ok');
             }
     
+            
             const result = await response.json();
             setData(result);
           } catch (error) {
@@ -38,7 +33,7 @@ function Admin() {
         };
     
         fetchData();
-      }, []); */
+      }, []);
 
       const clients = data.map((client) =>({
         "#":client.id,

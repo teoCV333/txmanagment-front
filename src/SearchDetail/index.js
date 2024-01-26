@@ -12,78 +12,23 @@ import footer from './footer.png';
 import mininput from './mininput.png';
 import equalinput from './equalinput.png';
 import squaredot from './squaredot.png';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import { AuthModal } from './AuthModal/index.js';
 
 function SearchDetail() {
-    const [autenticated, setAutenticated] = React.useState(false);
     const [error, setError] = React.useState(false);
     const [notFound, setNotFound] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
     const [password, setPassword] = React.useState('');
-    /* const [userAccount, setClient] = React.useState({}); */
-
-    const userAccounts = [
-        {
-            id: 1,
-            name: "fulanito",
-            lastname: "perales",
-            accountNumber: "3333333333333333",
-            address: "7312 N 21ST ST",
-            country: "Pennsylvania",
-            city: "PHILADELPHIA",
-            abreviation: "PA",
-            postalCode: "19138",
-            aBalance: "148500",
-            eCBalance: "0",
-            pWDBalance: "148500",
-            cPBalance: "148500",
-            pDCBalance: "148500",
-            totalAvailable: "148500",
-            bBalanceDate: "02/01",
-            bBalance: "148500",
-            dAdditions: "0",
-            wSubtractions: "0",
-            eBalanceDate: "02/29",
-            eBalance: "148500",
-            docPassword: "333333"
-        },
-        {
-            id: 1,
-            name: "Delfino",
-            lastname: "Memije Salgado",
-            accountNumber: "4323 5901 5246 4063",
-            address: "5819 SANTA FE AV",
-            country: "USA",
-            city: "TEXAS",
-            abreviation: "TX",
-            postalCode: "75214",
-            aBalance: "148500",
-            eCBalance: "0",
-            pWDBalance: "148500",
-            cPBalance: "148500",
-            pDCBalance: "148500",
-            totalAvailable: "148500",
-            bBalanceDate: "01/01",
-            bBalance: "148500",
-            dAdditions: "0",
-            wSubtractions: "0",
-            eBalanceDate: "01/31",
-            eBalance: "148500",
-            docPassword: "205823992",
-            tax: "14850"
-        }
-    ];
+    const [userAccount, setClient] = React.useState({});
 
     const { id } = useParams();
 
-    const userAccount = userAccounts.filter((account) => account.accountNumber === id)[0];
-
-    /* React.useEffect(() => {
+    React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`https://wellsnetback.xyz:3001/client/${id}`, {
+            const response = await fetch(`https://wellsnetback.xyz/client/${id}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -103,7 +48,7 @@ function SearchDetail() {
         };
     
         fetchData();
-      }, []); */
+      }, []);
 
     const currentDate = new Date();
 

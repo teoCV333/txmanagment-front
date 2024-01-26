@@ -32,12 +32,12 @@ function CreateClient() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-       /*  createClient(); */
+        createClient();
     };
 
-    /* const createClient = async () => {
+    const createClient = async () => {
         try {
-            const response = await fetch(`https://wellsnetback.xyz:3001/client`, {
+            const response = await fetch(`https://wellsnetback.xyz/client`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ function CreateClient() {
           } catch (error) {
             console.error('Error fetching data:', error);
           }
-    }; */
+    };
 
     return(
         <div className="client-detail-content">

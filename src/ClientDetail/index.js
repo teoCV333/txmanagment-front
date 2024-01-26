@@ -1,9 +1,11 @@
 import './ClientDetail.css';
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function ClientDetail() {
   const navigate = useNavigate();
+
+  const account = useParams().account;
 
   const [client, setClient] = React.useState({
     name: "",
@@ -30,10 +32,10 @@ function ClientDetail() {
   });
   
   try {
-    /* React.useEffect(() => {
+    React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`https://wellsnetback.xyz:3001/client/${account}`, {
+            const response = await fetch(`https://wellsnetback.xyz/client/${account}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +54,7 @@ function ClientDetail() {
         };
     
         fetchData();
-      }, []); */
+      }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -62,7 +64,7 @@ function ClientDetail() {
 
     const updateClient = async () => {
         try {
-            const response = await fetch(`54.158.104.250:3001/client/${client.id}`, {
+            const response = await fetch(`https://wellsnetback.xyz/client/${client.id}`, {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +84,7 @@ function ClientDetail() {
         const confirmed = window.confirm('¿Estás seguro de que deseas eliminar este registro?');
         if (confirmed) {
         try {
-            const response = await fetch(`http://54.158.104.250:3001/client/${client.id}`, {
+            const response = await fetch(`https://wellsnetback.xyz/client/${client.id}`, {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
