@@ -12,20 +12,18 @@ function Loggin() {
     const [inputValue, setInputValue] = React.useState('');
     const [showOptions, setShowOptions] = React.useState(false);
     const [error, setError] = React.useState({error: false, errorCode: ''});
-    /* const [data, setData] = React.useState([
-        '4444444444444444'
-    ]);*/
+    const [data, setData] = React.useState([]);
 
-    const data = [
+    /* const data = [
         '4323 5901 5246 4063',
-    ]
+    ] */
 
     const navigate = useNavigate();
 
-    /* React.useEffect(() => {
+    React.useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://www.wellsnetback.xyz:3001/accounts', {
+            const response = await fetch('https://www.wellsnetback.xyz/accounts', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -37,6 +35,7 @@ function Loggin() {
             }
     
             const result = await response.json();
+            console.log(result)
             setData(result);
           } catch (error) {
             console.error('Error fetching data:', error);
@@ -44,7 +43,7 @@ function Loggin() {
         };
     
         fetchData();
-      }, []); */
+      }, []);
 
     const handleInputChange = (e) => {
         try {
@@ -119,13 +118,13 @@ function Loggin() {
                     onKeyDown={handleEnterKeyPress}
                     onFocus={() => setShowOptions(true)}
                 />
-                {(showOptions && inputValue !== '' && data.filter((option) => option && option.includes(inputValue)).length > 0) && (
+                {(showOptions && inputValue !== '' && data.filter((option) => option.accountNumber && option.accountNumber.includes(inputValue)).length > 0) && (
                     <div className="custom-dropdown">
                         {data
-                            .filter((option) => option && option.includes(inputValue))
+                            .filter((option) => option.accountNumber && option.accountNumber.includes(inputValue))
                             .map((option, index) => (
-                                <option key={index} onClick={() => selectOption(option)}>
-                                    {option}
+                                <option key={index} onClick={() => selectOption(option.accountNumber)}>
+                                    {option.accountNumber}
                                 </option>
                             ))}
                     </div>
