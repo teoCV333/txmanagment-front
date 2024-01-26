@@ -67,7 +67,7 @@ function CreateClient() {
                     <input required value={client.lastname} onChange={(e) => setClient({...client, lastname: e.target.value})} />
 
                     <label>Número de cuenta</label>
-                    <input required maxLength={16} minLength={16} value={client.accountNumber} onChange={(e) => setClient({...client, accountNumber: e.target.value})} />
+                    <input required maxLength={19} minLength={16} value={client.accountNumber} onChange={(e) => setClient({...client, accountNumber: e.target.value})} />
 
                     <label>Dirección</label>
                     <input required value={client.address} onChange={(e) => setClient({...client, address: e.target.value})} />
