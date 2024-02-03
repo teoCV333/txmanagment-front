@@ -14,7 +14,7 @@ import equalinput from './equalinput.png';
 import squaredot from './squaredot.png';
 import { useParams } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
-import { AuthModal } from './AuthModal/index.js';
+import { AuthModal } from '../AuthModal/index.js';
 
 function SearchDetail() {
     const [error, setError] = React.useState(false);

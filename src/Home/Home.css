@@ -62,4 +62,15 @@ hr.break-line {
         gap: 10px; 
     }
     
-}
+    .financial-grid-container {
+        padding: 0px 15%;
+    }
+
+    hr.break-line {
+        margin: 7% 47%;
+    }
+
+    .serving-customers-content {
+        padding: 0px 15%;
+    }
+}   

@@ -13,3 +13,9 @@
 .icons-container ul li img {
     width: 60%;
 }
+
+@media only screen and (min-width: 741px) {
+    .icons-container ul li img {
+        width: 24%;
+    }
+} 

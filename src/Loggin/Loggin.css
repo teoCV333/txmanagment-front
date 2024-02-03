@@ -57,3 +57,9 @@ input {
   .custom-dropdown option:hover {
     background-color: #f0f0f0;
   }
+
+  @media only screen and (min-width: 741px) {
+    .search-icon {
+        right: 48px;
+    }
+  }
