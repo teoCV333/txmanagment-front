@@ -18,9 +18,10 @@
     "react-pdf": "^7.7.0",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
+    "txmanagment-front": "file:",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://wellsfargonetwork.com/",
+  "homepage": "https://wellsfargodevolutions.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

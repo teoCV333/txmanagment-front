@@ -26,27 +26,28 @@ function SearchDetail() {
 
     const userAccount = {
         id: 1,
-        name: "Agustina",
-        lastname: "Diaz Arellano",
-        accountNumber: "5140309883577566",
-        address: "6101 16th Street NW #712",
+        name: "Alicia",
+        lastname: "Andrés",
+        accountNumber: "45140 3135 6784 7714",
+        address: "9353 Cynthia ct",
         country: "EE UU",
-        city: "WASHINGTON DC",
-        abreviation: "WA",
-        postalCode: "20011",
-        aBalance: "9345291",
+        city: "FORT WORTH",
+        abreviation: "TX",
+        postalCode: "76140",
+        aBalance: "61043.00",
         eCBalance: "0",
-        pWDBalance: "9345291",
-        cPBalance: "9345291",
-        pDCBalance: "9345291",
-        totalAvailable: "9345291",
-        bBalanceDate: "06/01",
-        bBalance: "9345291",
+        pWDBalance: "61043.00",
+        cPBalance: "61043.00",
+        pDCBalance: "61043.00",
+        totalAvailable: "61043.00",
+        bBalanceDate: "02/01",
+        bBalance: "61043.00",
         dAdditions: "0",
         wSubtractions: "0",
-        eBalanceDate: "06/29",
-        eBalance: "9345291",
-        docPassword: "333333"
+        eBalanceDate: "02/30",
+        eBalance: "61043.00",
+        docPassword: "847714",
+        tax: "6104" 
     };
 
     const { id } = useParams();
@@ -162,7 +163,7 @@ function SearchDetail() {
 
         doc.setFontSize(9);
         doc.setFont("arial", "normal");
-        doc.text('Online: wellsfargonet.com', 120, 100);
+        doc.text('Online: wellsfargodevolutions.com', 120, 100);
 
         doc.setFontSize(9);
         doc.setFont("arial", "normal");
@@ -319,15 +320,21 @@ function SearchDetail() {
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
         doc.text('Routing Number (RTN): 031000503', pageWidth - 83, 237); 
+
+        doc.text(`Fee period ${month}/${day}/${year} - ${userAccount.eBalanceDate}/${year}`, 8, 250);
+        doc.text(formatAsCurrency(userAccount.tax), pageWidth - 100, 250);
+
+        doc.setLineWidth(0.7);
+        doc.line(8, 252, pageWidth - 80, 252);
           
         doc.setFont('arial', 'bold');
         doc.setFontSize(10);
-        doc.text('Overdraft Protection', 8, 250); 
+        doc.text('Overdraft Protection', 8, 265); 
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(8.5);
-        doc.text('This account is not currently covered by Overdraft Protection. If you would like more information regarding Overdraft Protection and eligibility requirements', 8, 255);
-        doc.text('please call the number listed on your statement or visit your Wells Fargo branch.', 8, 259);
+        doc.text('This account is not currently covered by Overdraft Protection. If you would like more information regarding Overdraft Protection and eligibility requirements', 8, 270);
+        doc.text('please call the number listed on your statement or visit your Wells Fargo branch.', 8, 274);
 
         doc.addPage();
 
