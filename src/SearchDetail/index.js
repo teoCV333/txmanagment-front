@@ -28,7 +28,7 @@ function SearchDetail() {
         id: 1,
         name: "Alicia",
         lastname: "Andrés",
-        accountNumber: "45140 3135 6784 7714",
+        accountNumber: "5140 3135 6784 7714",
         address: "9353 Cynthia ct",
         country: "EE UU",
         city: "FORT WORTH",
