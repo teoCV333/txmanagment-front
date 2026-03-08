@@ -97,13 +97,13 @@ function SearchDetail() {
     });
 
 
-    const loadImage = (src) => {
-        return new Promise((resolve) => {
+    const loadImage = (src) =>
+        new Promise((resolve, reject) => {
             const img = new Image();
             img.src = src;
             img.onload = () => resolve(img);
+            img.onerror = reject;
         });
-    };
 
     const watchStatements = () => {
         setOpenModal(true);
@@ -125,9 +125,8 @@ function SearchDetail() {
         return Number(amount).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     };
 
-    const doc = new jsPDF();
-
     const downloadPDF = async () => {
+        const doc = new jsPDF();
         const logoImg = await loadImage(pdfLogo);
         const accountInfoImg = await loadImage(accountInfLogo);
         const table1Img = await loadImage(table1);
@@ -587,7 +586,7 @@ with an identity theft report.`, 104, 57.8)
 
 
         doc.addImage(squaredotImg, 'PNG', 101, 88, 1, 1);
-        doc.setFont("aria", "bold");
+        doc.setFont("arial", "bold");
         doc.text(`In case of errors or questions about your electronic transfers,`, 104, 90);
         doc.setFont("arial", "normal");
         doc.text(`telephone us at the number printed on the front of this statement or write
