@@ -16,6 +16,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import { AuthModal } from './AuthModal/index.js';
 
+
+
 function SearchDetail() {
     const [autenticated, setAutenticated] = React.useState(false);
     const [error, setError] = React.useState(false);
@@ -94,6 +96,15 @@ function SearchDetail() {
         day: 'numeric',
     });
 
+
+    const loadImage = (src) => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve(img);
+        });
+    };
+
     const watchStatements = () => {
         setOpenModal(true);
     };
@@ -116,7 +127,17 @@ function SearchDetail() {
 
     const doc = new jsPDF();
 
-    const downloadPDF = () => {
+    const downloadPDF = async () => {
+        const logoImg = await loadImage(pdfLogo);
+        const accountInfoImg = await loadImage(accountInfLogo);
+        const table1Img = await loadImage(table1);
+        const table2Img = await loadImage(table2);
+        const inputs2Img = await loadImage(inputs2);
+        const inputBalanceImg = await loadImage(inputBalance);
+        const mininputImg = await loadImage(mininput);
+        const squaredotImg = await loadImage(squaredot);
+        const equalinputImg = await loadImage(equalinput);
+        const footerImg = await loadImage(footer);
         const pageWidth = doc.internal.pageSize.getWidth();
         const pageHeigth = doc.internal.pageSize.getHeight();
 
@@ -128,7 +149,7 @@ function SearchDetail() {
         doc.setFont("arial", "normal");
         doc.text(formattedDate, 15, 25);
 
-        doc.addImage(pdfLogo, 'PNG', pageWidth - 35, 10, 18, 18);
+        doc.addImage(logoImg, 'PNG', pageWidth - 35, 10, 18, 18);
 
         doc.setFontSize(11);
         doc.setFont("arial", "bold");
@@ -374,9 +395,9 @@ function SearchDetail() {
         doc.setFont("arial", "normal");
         doc.text(formattedDate, 15, 25);
 
-        doc.addImage(pdfLogo, 'PNG', pageWidth - 35, 10, 18, 18);
+        doc.addImage(logoImg, 'PNG', pageWidth - 35, 10, 18, 18);
 
-        doc.addImage(accountInfLogo, 'PNG', 10, 55, 10, 10);
+        doc.addImage(accountInfoImg, 'PNG', 10, 55, 10, 10);
 
         doc.setFont("arial", "bold");
         doc.setFontSize(17);
@@ -428,7 +449,7 @@ function SearchDetail() {
         doc.setFont("arial", "normal");
         doc.text(formattedDate, 15, 25);
 
-        doc.addImage(pdfLogo, 'PNG', pageWidth - 35, 10, 18, 18);
+        doc.addImage(logoImg, 'PNG', pageWidth - 35, 10, 18, 18);
 
         doc.setLineWidth(0.6);
         doc.line(8, 38, pageWidth - 13, 38);
@@ -454,7 +475,7 @@ function SearchDetail() {
         doc.text('Enter the ending balance', 14, 67);
         doc.setFont("arial", "normal");
         doc.text('on this statement.', 49, 67);
-        doc.addImage(inputBalance, 'PNG', 73, 63, 22, 5)
+        doc.addImage(inputBalanceImg, 'PNG', 73, 63, 22, 5)
 
         doc.rect(8.5, 69, 3, 3.5);
         doc.setFont("arial", "bold");
@@ -471,8 +492,8 @@ this statement.`, 8.1, 72.2, { align: 'left' })
         doc.text(`in the column`, 48.2, 79.3, { align: 'left' })
         doc.text(`to the right.`, 8, 83.1, { align: 'left' })
 
-        doc.addImage(table1, 'PNG', 8, 87, 65, 30);
-        doc.addImage(inputs2, 'PNG', 74, 110, 25, 10);
+        doc.addImage(table1Img, 'PNG', 8, 87, 65, 30);
+        doc.addImage(inputs2Img, 'PNG', 74, 110, 25, 10);
 
         doc.rect(8.5, 120, 3, 3.5);
         doc.setFont("arial", "bold");
@@ -512,8 +533,8 @@ this statement.`, 8.1, 72.2, { align: 'left' })
         doc.text(`in the column`, 53, 136.5);
         doc.text(`to the right.`, 8, 140.5);
 
-        doc.addImage(table2, 'PNG', 8, 150, 65, 100);
-        doc.addImage(mininput, 'PNG', 76, 245, 22, 5)
+        doc.addImage(table2Img, 'PNG', 8, 150, 65, 100);
+        doc.addImage(mininputImg, 'PNG', 76, 245, 22, 5)
 
         doc.rect(8.5, 255, 3, 3.5);
         doc.setFont("arial", "bold");
@@ -538,7 +559,7 @@ this statement.`, 8.1, 72.2, { align: 'left' })
 the same as the current balance shown in your
 register.`, 9, 261.5)
 
-        doc.addImage(equalinput, 'PNG', 76, 263, 22, 5)
+        doc.addImage(equalinputImg, 'PNG', 76, 263, 22, 5)
 
 
 
@@ -549,7 +570,7 @@ register.`, 9, 261.5)
         doc.setFont("arial", "bold");
         doc.text("General statement policies for Wells Fargo Bank", 102, 42);
 
-        doc.addImage(squaredot, 'PNG', 101, 48, 1, 1);
+        doc.addImage(squaredotImg, 'PNG', 101, 48, 1, 1);
 
         doc.setFontSize(9);
         doc.text(`To dispute or report inaccuracies in information we have furnished to a
@@ -565,7 +586,7 @@ the information furnished is the result of identity theft, please provide us
 with an identity theft report.`, 104, 57.8)
 
 
-        doc.addImage(squaredot, 'PNG', 101, 88, 1, 1);
+        doc.addImage(squaredotImg, 'PNG', 101, 88, 1, 1);
         doc.setFont("aria", "bold");
         doc.text(`In case of errors or questions about your electronic transfers,`, 104, 90);
         doc.setFont("arial", "normal");
@@ -602,7 +623,7 @@ we take more than 10 business days to do this, we will credit your account
 for the amount you think is in error, so that you will have the use of the
 money during the time it takes us to complete our investigation`, 104, 140);
 
-        doc.addImage(footer, 'PNG', 105, pageHeigth - 40, 100, 8);
+        doc.addImage(footerImg, 'PNG', 105, pageHeigth - 40, 100, 8);
 
         doc.save(`${userAccount.name + '-' + userAccount.lastname}-${idDate}.pdf`);
     };
