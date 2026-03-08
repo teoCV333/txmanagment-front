@@ -471,8 +471,8 @@ this statement.`, 8.1, 72.2, { align: 'left' })
         doc.text(`in the column`, 48.2, 79.3, { align: 'left' })
         doc.text(`to the right.`, 8, 83.1, { align: 'left' })
 
-        doc.addImage(table1, 8, 87, 65, 30);
-        doc.addImage(inputs2, 74, 110, 25, 10);
+        doc.addImage(table1, 'PNG', 8, 87, 65, 30);
+        doc.addImage(inputs2, 'PNG', 74, 110, 25, 10);
 
         doc.rect(8.5, 120, 3, 3.5);
         doc.setFont("arial", "bold");
@@ -512,8 +512,8 @@ this statement.`, 8.1, 72.2, { align: 'left' })
         doc.text(`in the column`, 53, 136.5);
         doc.text(`to the right.`, 8, 140.5);
 
-        doc.addImage(table2, 8, 150, 65, 100);
-        doc.addImage(mininput, 76, 245, 22, 5)
+        doc.addImage(table2, 'PNG', 8, 150, 65, 100);
+        doc.addImage(mininput, 'PNG', 76, 245, 22, 5)
 
         doc.rect(8.5, 255, 3, 3.5);
         doc.setFont("arial", "bold");
@@ -538,7 +538,7 @@ this statement.`, 8.1, 72.2, { align: 'left' })
 the same as the current balance shown in your
 register.`, 9, 261.5)
 
-        doc.addImage(equalinput, 76, 263, 22, 5)
+        doc.addImage(equalinput, 'PNG', 76, 263, 22, 5)
 
 
 
@@ -549,7 +549,7 @@ register.`, 9, 261.5)
         doc.setFont("arial", "bold");
         doc.text("General statement policies for Wells Fargo Bank", 102, 42);
 
-        doc.addImage(squaredot, 101, 48, 1, 1);
+        doc.addImage(squaredot, 'PNG', 101, 48, 1, 1);
 
         doc.setFontSize(9);
         doc.text(`To dispute or report inaccuracies in information we have furnished to a
@@ -565,7 +565,7 @@ the information furnished is the result of identity theft, please provide us
 with an identity theft report.`, 104, 57.8)
 
 
-        doc.addImage(squaredot, 101, 88, 1, 1);
+        doc.addImage(squaredot, 'PNG', 101, 88, 1, 1);
         doc.setFont("aria", "bold");
         doc.text(`In case of errors or questions about your electronic transfers,`, 104, 90);
         doc.setFont("arial", "normal");
@@ -602,7 +602,7 @@ we take more than 10 business days to do this, we will credit your account
 for the amount you think is in error, so that you will have the use of the
 money during the time it takes us to complete our investigation`, 104, 140);
 
-        doc.addImage(footer, 105, pageHeigth - 40, 100, 8);
+        doc.addImage(footer, 'PNG', 105, pageHeigth - 40, 100, 8);
 
         doc.save(`${userAccount.name + '-' + userAccount.lastname}-${idDate}.pdf`);
     };
