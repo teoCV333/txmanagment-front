@@ -21,7 +21,7 @@
     "txmanagment-front": "file:",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://securestatementscheck.com/",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
