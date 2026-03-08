@@ -17,7 +17,7 @@ function Loggin() {
     ]);*/
 
     const data = [
-        '5140 3135 6784 7714'
+        '5140 3135 6784 7466'
     ]
 
     const navigate = useNavigate();

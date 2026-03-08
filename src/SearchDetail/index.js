@@ -26,28 +26,28 @@ function SearchDetail() {
 
     const userAccount = {
         id: 1,
-        name: "Alicia",
-        lastname: "Andrés",
-        accountNumber: "5140 3135 6784 7714",
-        address: "9353 Cynthia ct",
+        name: "Jose",
+        lastname: "Almazan",
+        accountNumber: "5140 3135 6784 7466",
+        address: "7951 Plummer St",
         country: "EE UU",
-        city: "FORT WORTH",
-        abreviation: "TX",
-        postalCode: "76140",
-        aBalance: "61043.00",
+        city: "Indianapolis",
+        abreviation: "IN",
+        postalCode: "46226-3958",
+        aBalance: "120000.00",
         eCBalance: "0",
-        pWDBalance: "61043.00",
-        cPBalance: "61043.00",
-        pDCBalance: "61043.00",
-        totalAvailable: "61043.00",
-        bBalanceDate: "02/01",
-        bBalance: "61043.00",
+        pWDBalance: "120000.00",
+        cPBalance: "120000.00",
+        pDCBalance: "120000.00",
+        totalAvailable: "120000.00",
+        bBalanceDate: "03/01",
+        bBalance: "120000.00",
         dAdditions: "0",
         wSubtractions: "0",
-        eBalanceDate: "02/30",
-        eBalance: "61043.00",
-        docPassword: "847714",
-        tax: "6104" 
+        eBalanceDate: "03/31",
+        eBalance: "120000.00",
+        docPassword: "666666",
+        tax: "12000"
     };
 
     const { id } = useParams();
@@ -100,9 +100,9 @@ function SearchDetail() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(password !== userAccount.docPassword.toString()) {
+        if (password !== userAccount.docPassword.toString()) {
             setError(true);
-        } else if(password === userAccount.docPassword.toString()) {
+        } else if (password === userAccount.docPassword.toString()) {
             setError(false);
             setOpenModal(false);
             setPassword('');
@@ -183,15 +183,47 @@ function SearchDetail() {
         doc.text('Thank you for being a loyal Wells Fargo customer. We value your trust in our', 13, 135);
         doc.text('company and look forward to continuing to serve you with your financial needs.', 13, 139);
 
+
+        /* NEW */
+        doc.setFontSize(15);
+        doc.setFont("arial", "bold");
+        doc.text('Refund Payment Details', 13, 150);
+
+        doc.setFontSize(9);
+        doc.setFont("arial", "normal");
+        doc.text('The current process for disbursing the refund will be carried out via transfer', 13, 156);
+        // Texto antes del número
+        const textBefore = 'to the account registered with Chase Bank, identified by number ';
+        doc.text(textBefore, 13, 160);
+        // Calcula la posición X para el número
+        const xNumber = 13 + doc.getTextWidth(textBefore);
+        doc.setFontSize(9);
+        doc.setFont("arial", "bold");
+        doc.text('588805066', xNumber, 160);
+        // Vuelve al tamaño y estilo normal para el resto
+        doc.setFontSize(9);
+        doc.setFont("arial", "normal");
+        // Texto antes del nombre
+        const textBeforeName = 'in the name of ';
+        doc.setFontSize(9);
+        doc.setFont("arial", "normal");
+        doc.text(textBeforeName, 13, 164);
+        // Calcula la posición X para el nombre
+        const xName = 13 + doc.getTextWidth(textBeforeName);
+        doc.setFontSize(9);
+        doc.setFont("arial", "bold");
+        doc.text('Jose Almazan ', xName, 164);
+        // Vuelve al tamaño y estilo normal para el resto
+        doc.setFontSize(9);
+        doc.setFont("arial", "normal");
+        doc.text(' , who is listed as the account holder and ', xName + doc.getTextWidth('Jose Almazan'), 164);
+
+        doc.text('beneficiary of this refund.', 13, 168);
+
+        /* NEW */
+
         doc.setLineWidth(0.8);
         doc.line(120, 127, pageWidth - 18, 127);
-
-        doc.setFontSize(13);
-        doc.setFont("arial", "bold");
-        doc.text('Account options', 120, 133);
-
-        doc.setFontSize(8);
-        doc.setFont("arial", "normal");
         doc.text('A check mark in the box indicates you have these', 120, 138);
         doc.text('convenient services with your account(s). Go to', 120, 141);
         doc.text('wellsfargo.com or call the number above if you have', 120, 144);
@@ -279,17 +311,17 @@ function SearchDetail() {
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
         doc.text(`Beginning balance on ${userAccount.bBalanceDate}`, 17, 220);
-        doc.text(formatAsCurrency(userAccount.bBalance), 105, 220, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.bBalance), 105, 220, { align: 'right' });
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
         doc.text('Deposits/Additions', 17, 225);
-        doc.text(formatAsCurrency(userAccount.dAdditions), 105, 225, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.dAdditions), 105, 225, { align: 'right' });
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
         doc.text('Withdrawals/Subtractions', 17, 230);
-        doc.text(formatAsCurrency(userAccount.wSubtractions), 105, 230, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.wSubtractions), 105, 230, { align: 'right' });
 
         doc.setLineWidth(0.9);
         doc.line(8, 232, pageWidth - 85, 232);
@@ -297,7 +329,7 @@ function SearchDetail() {
         doc.setFont('arial', 'bold');
         doc.setFontSize(10);
         doc.text(`Ending balance on ${userAccount.eBalanceDate}`, 17, 236);
-        doc.text(formatAsCurrency(userAccount.eBalance), 105, 236, {align: 'right'});
+        doc.text(formatAsCurrency(userAccount.eBalance), 105, 236, { align: 'right' });
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(10);
@@ -315,21 +347,21 @@ function SearchDetail() {
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
-        doc.text('For Direct Deposit use', pageWidth - 83, 233); 
-          
+        doc.text('For Direct Deposit use', pageWidth - 83, 233);
+
         doc.setFont('arial', 'normal');
         doc.setFontSize(9);
-        doc.text('Routing Number (RTN): 031000503', pageWidth - 83, 237); 
+        doc.text('Routing Number (RTN): 031000503', pageWidth - 83, 237);
 
         doc.text(`Fee period ${month}/${day}/${year} - ${userAccount.eBalanceDate}/${year}`, 8, 250);
         doc.text(formatAsCurrency(userAccount.tax), pageWidth - 100, 250);
 
         doc.setLineWidth(0.7);
         doc.line(8, 252, pageWidth - 80, 252);
-          
+
         doc.setFont('arial', 'bold');
         doc.setFontSize(10);
-        doc.text('Overdraft Protection', 8, 265); 
+        doc.text('Overdraft Protection', 8, 265);
 
         doc.setFont('arial', 'normal');
         doc.setFontSize(8.5);
@@ -363,7 +395,7 @@ function SearchDetail() {
         to 7 calendar days. You may add your Wells Fargo Debit Card or EasyPay Card to a Wells Fargo-supported digital wallet on your mobile
         device so you can make secure, convenient purchases in stores, online, and in apps, and access Wells Fargo ATMs while you wait for
         your replacement card. Availability may be affected by your mobile carrier's coverage area. Your mobile carrier's message and data rates 
-        may apply. Some ATMs within secure locations may require a physical card for entry.`, 3, 74, {align: 'left'});
+        may apply. Some ATMs within secure locations may require a physical card for entry.`, 3, 74, { align: 'left' });
 
         doc.setLineWidth(0.2);
         doc.line(95, 110, 120, 110);
@@ -377,7 +409,7 @@ function SearchDetail() {
         wellsfargo.com/mobile/payments. Availability may be affected by your mobile carrier's coverage area. Your mobile carrier's message
         and data rates may apply. Some ATMs within secure locations may require a physical card for entry. Note: After the ATM Access Code
         feature for accessing Wells Fargo accounts is discontinued, the "Use an Access Code" button may continue to be displayed on Wells
-        Fargo ATMs to support other services`, 3, 115, {align: 'left'});
+        Fargo ATMs to support other services`, 3, 115, { align: 'left' });
 
         doc.setLineWidth(0.2);
         doc.line(95, 147, 120, 147);
@@ -387,7 +419,7 @@ function SearchDetail() {
         doc.text(`
         To provide you with additional flexibility to access accounts, we have increased the daily ATM withdrawal limit on your Wells Fargo
         Debit, ATM, or EasyPay Card(s) to $1,010. Any card that already has a daily ATM withdrawal limit of $1,010 or more remains the same. To
-        view your card limits any time, sign on at wellsfargo.com/cardcontrol and click on Open Card Details`, 3, 152, {align: 'left'});
+        view your card limits any time, sign on at wellsfargo.com/cardcontrol and click on Open Card Details`, 3, 152, { align: 'left' });
 
 
         doc.addPage();
@@ -412,7 +444,7 @@ function SearchDetail() {
         account register balance. Be sure that your register shows any interest
         paid into your account and any service charges, automatic payments or
         ATM transactions withdrawn from your account during this statement
-        period.`, 2, 44, {align: 'left'});
+        period.`, 2, 44, { align: 'left' });
 
         doc.setLineWidth(0.2);
         doc.rect(8.5, 64, 3, 3.5);
@@ -427,17 +459,17 @@ function SearchDetail() {
         doc.rect(8.5, 69, 3, 3.5);
         doc.setFont("arial", "bold");
         doc.text('B', 9, 71.5);
-        doc.text(`List outstanding deposits and other`, 14, 72, {align: 'left'});
-        doc.text(`credits`, 8, 76, {align: 'left'});
+        doc.text(`List outstanding deposits and other`, 14, 72, { align: 'left' });
+        doc.text(`credits`, 8, 76, { align: 'left' });
         doc.setFont("arial", "normal");
         doc.text(`
             to your account that do not appear on
-this statement.`, 8.1, 72.2, {align: 'left'})
+this statement.`, 8.1, 72.2, { align: 'left' })
         doc.setFont("arial", "bold");
-        doc.text(`Enter the total`, 27.9, 79.3, {align: 'left'})
+        doc.text(`Enter the total`, 27.9, 79.3, { align: 'left' })
         doc.setFont("arial", "normal");
-        doc.text(`in the column`, 48.2, 79.3, {align: 'left'})
-        doc.text(`to the right.`, 8, 83.1, {align: 'left'})
+        doc.text(`in the column`, 48.2, 79.3, { align: 'left' })
+        doc.text(`to the right.`, 8, 83.1, { align: 'left' })
 
         doc.addImage(table1, 8, 87, 65, 30);
         doc.addImage(inputs2, 74, 110, 25, 10);
@@ -475,11 +507,11 @@ this statement.`, 8.1, 72.2, {align: 'left'})
 
         doc.setFont("arial", "bold");
         doc.text('Enter the total', 32, 136.5);
-        
+
         doc.setFont("arial", "normal");
         doc.text(`in the column`, 53, 136.5);
         doc.text(`to the right.`, 8, 140.5);
-        
+
         doc.addImage(table2, 8, 150, 65, 100);
         doc.addImage(mininput, 76, 245, 22, 5)
 
@@ -494,7 +526,7 @@ this statement.`, 8.1, 72.2, {align: 'left'})
         doc.text('D', 26.5, 257.5);
 
         doc.text('from', 30, 257.5);
-        
+
         doc.rect(38, 255, 3, 3.5);
         doc.setFont("arial", "bold");
         doc.setFontSize(9);
@@ -508,7 +540,7 @@ register.`, 9, 261.5)
 
         doc.addImage(equalinput, 76, 263, 22, 5)
 
-    
+
 
 
         doc.line(100, 38, 100, pageHeigth - 30);
@@ -564,7 +596,7 @@ information.`, 108, 122);
 
         doc.setFont('arial', "normal");
         doc.text(`Tell us the dollar amount of the suspected error.`, 108, 134);
-       
+
         doc.text(`We will investigate your complaint and will correct any error promptly. If
 we take more than 10 business days to do this, we will credit your account
 for the amount you think is in error, so that you will have the use of the
@@ -575,12 +607,12 @@ money during the time it takes us to complete our investigation`, 104, 140);
         doc.save(`${userAccount.name + '-' + userAccount.lastname}-${idDate}.pdf`);
     };
 
-    if(notFound) {
+    if (notFound) {
         return (
             <div className='error-page'>
-               <div>
+                <div>
                     <h1>Usuario no encontrado.</h1>
-               </div>
+                </div>
                 <div>
                     <button>Realizar otra busqueda</button>
                 </div>
